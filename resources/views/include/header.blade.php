@@ -12,15 +12,15 @@
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="/" class="active">Beranda</a></li>
                 <!-- <li><a href="about.html">Tentang</a></li> -->
                 <li><a href="services.html">Permohonan</a></li>
                 <li><a href="pricing.html">Unduhan</a></li>
                 <li class="dropdown"><a href="#"><span>Tentang</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="#">Drop Down 1</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
+                        <li><a href="/about">Kekayaan Intelektual</a></li>
+                        {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
                                     class="bi bi-chevron-down dropdown-indicator"></i></a>
                             <ul>
                                 <li><a href="#">Deep Drop Down 1</a></li>
@@ -32,7 +32,7 @@
                         </li>
                         <li><a href="#">Drop Down 2</a></li>
                         <li><a href="#">Drop Down 3</a></li>
-                        <li><a href="#">Drop Down 4</a></li>
+                        <li><a href="#">Drop Down 4</a></li> --}}
                     </ul>
                 </li>
                 <!-- <li><a href="contact.html">Contact</a></li> -->
