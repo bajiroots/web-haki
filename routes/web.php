@@ -26,3 +26,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/unduhan', function () {
+    return view('unduhan');
+});
+
