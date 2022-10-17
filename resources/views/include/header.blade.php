@@ -15,7 +15,7 @@
                 <li><a href="/" class="active">Beranda</a></li>
                 <!-- <li><a href="about.html">Tentang</a></li> -->
                 <li><a href="services.html">Permohonan</a></li>
-                <li><a href="pricing.html">Unduhan</a></li>
+                <li><a href="/unduhan">Unduhan</a></li>
                 <li class="dropdown"><a href="#"><span>Tentang</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
