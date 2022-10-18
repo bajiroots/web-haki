@@ -14,7 +14,7 @@
                                     <a href="{{route('jenis_permohonan.index')}}">Jenis Permohonan</a>
                                 </li>
                                 <li>
-                                    <a href="profile.html">Jenis Ciptaan</a>
+                                    <a href="{{route('jenis_ciptaan.index')}}">Jenis Ciptaan</a>
                                 </li>
                                 <li>
                                     <a href="file-manager.html">Sub Jenis Ciptaan</a>
