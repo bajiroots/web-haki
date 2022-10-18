@@ -11,7 +11,7 @@
                             <a href="#">Master Data<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>
                                 <li>
-                                    <a href="mailbox.html">Jenis Permohonan</a>
+                                    <a href="{{route('jenis_permohonan.index')}}">Jenis Permohonan</a>
                                 </li>
                                 <li>
                                     <a href="profile.html">Jenis Ciptaan</a>
