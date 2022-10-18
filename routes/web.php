@@ -28,5 +28,5 @@ Route::get('/about', function () {
 
 Route::get('/unduhan', function () {
     return view('unduhan');
-});
+})->name('unduhan');
 
