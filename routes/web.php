@@ -22,13 +22,17 @@ Route::group(['prefix' => 'admin'], function(){
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/about', function () {
     return view('about');
-});
+})->name('about');
 
 Route::get('/unduhan', function () {
     return view('unduhan');
 })->name('unduhan');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
