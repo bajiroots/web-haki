@@ -25,7 +25,7 @@
                             @csrf
                             <div class="form-group">
                                 <label>Nama Jenis Permohonan</label>
-                                <input type="text" name="jenis_permohonan" required class="form-control" placeholder="Contoh: Lembaga Pendidikan">
+                                <input type="text" name="jenis_permohonan" required class="form-control" placeholder="Contoh: UMUM">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>

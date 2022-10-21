@@ -26,7 +26,9 @@
                             @csrf
                             <div class="form-group">
                                 <label>Nama Jenis Ciptaan</label>
-                                <input type="text" value="{{$data->nama_jenis_ciptaan}}" name="jenis_ciptaan" required class="form-control" placeholder="Contoh: Lembaga Pendidikan">
+                                <input type="text" value="{{$data->nama_jenis_ciptaan}}" name="jenis_ciptaan" required class="form-control mb-3" placeholder="Contoh: Karya Tulis">
+                                <label>Biaya</label>
+                                <input type="text" value="{{$data->biaya}}" name="biaya" required class="form-control mb-3" placeholder="Contoh: 200000">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>

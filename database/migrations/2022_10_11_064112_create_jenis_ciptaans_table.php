@@ -16,6 +16,7 @@ class CreateJenisCiptaansTable extends Migration
         Schema::create('jenis_ciptaans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_jenis_ciptaan');
+            $table->integer('biaya');
             $table->timestamps();
         });
     }
