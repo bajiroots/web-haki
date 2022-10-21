@@ -40,6 +40,7 @@ class JenisCiptaanController extends Controller
     {
         JenisCiptaan::create([
             'nama_jenis_ciptaan' => $request->jenis_ciptaan,
+            'biaya' => $request->biaya,
         ]);
 
         return redirect(route('jenis_ciptaan.index'));
@@ -82,6 +83,7 @@ class JenisCiptaanController extends Controller
         $data = JenisCiptaan::find($id);
         $data->update([
             'nama_jenis_ciptaan' => $request->jenis_ciptaan,
+            'biaya' => $request->biaya,
         ]);
 
         return redirect(route('jenis_ciptaan.index'));
