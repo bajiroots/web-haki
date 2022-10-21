@@ -17,7 +17,7 @@
                                     <a href="{{route('jenis_ciptaan.index')}}">Jenis Ciptaan</a>
                                 </li>
                                 <li>
-                                    <a href="file-manager.html">Sub Jenis Ciptaan</a>
+                                    <a href="{{route('sub_jenis_ciptaan.index')}}">Sub Jenis Ciptaan</a>
                                 </li>
                             </ul>
                         </li>

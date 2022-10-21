@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JenisPermohonanController;
 use App\Http\Controllers\JenisCiptaanController;
+use App\Http\Controllers\SubJenisCiptaanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('jenis_permohonan', JenisPermohonanController::class);
     Route::resource('jenis_ciptaan', JenisCiptaanController::class);
+    Route::resource('sub_jenis_ciptaan', SubJenisCiptaanController::class);
 });
 
 Route::get('/', function () {
