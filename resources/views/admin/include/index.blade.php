@@ -19,7 +19,9 @@
         <link href="{{ asset('assets_admin/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('assets_admin/plugins/font-awesome/css/all.min.css') }}" rel="stylesheet">
 
-      
+        {{-- datatables styles --}}
+        @stack('dataTableStyles')
+
         <!-- Theme Styles -->
         <link href="{{ asset('assets_admin/css/connect.min.css') }}" rel="stylesheet">
         <link href="{{ asset('assets_admin/css/admin2.css') }}" rel="stylesheet">
@@ -60,6 +62,9 @@
         <script src="{{ asset('assets_admin/plugins/flot/jquery.flot.tooltip.min.js') }}"></script>
         <script src="{{ asset('assets_admin/js/connect.min.js') }}"></script>
 
+        {{-- datatables script --}}
+        @stack('dataTable')
+        
         @yield('js')
         
     </body>

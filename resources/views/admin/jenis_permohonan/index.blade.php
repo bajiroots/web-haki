@@ -20,9 +20,9 @@
             <div class="col-xl">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Jenis Permohonan</h5>
-                        <a href="{{route("jenis_permohonan.create")}}" class="btn btn-primary btn-sm text-white">Tambah</a>
-                        <table class="table mt-3">
+                        <h5 class="card-title-lg">Jenis Permohonan</h5>
+                        <a href="{{route("jenis_permohonan.create")}}" class="btn btn-primary btn-sm text-white mb-g">Tambah</a>
+                        <table id="myTable" class="table mt-3">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Nomor</th>
@@ -36,7 +36,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$data->nama_jenis_permohonan}}</td>
                                     <td>
-                                        <a href="{{route('jenis_permohonan.edit', $data->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{route('jenis_permohonan.edit', $data->id)}}" class="btn btn-warning btn-sm float-left mr-2">Edit</a>
 
                                         <form method="POST" action="{{route('jenis_permohonan.destroy', $data->id)}}">
                                             @csrf
@@ -55,3 +55,21 @@
     </div>
 </div>
 @endsection
+
+@push('dataTable')
+            <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+            <script>
+                $(document).ready( function () {
+                    $('#myTable').DataTable({
+                        dom: 'Bfrtip',
+                        buttons: [
+                            'copy', 'csv', 'excel', 'pdf', 'print'
+                        ]
+                    });
+                } );
+            </script>
+@endpush
+
+@push('dataTableStyles')
+    <link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+@endpush

@@ -9,4 +9,9 @@ class SubJenisCiptaan extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function jenisCiptaan()
+    {
+        return $this->belongsTo(JenisCiptaan::class);
+    }
 }

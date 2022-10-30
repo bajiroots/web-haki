@@ -20,9 +20,9 @@
             <div class="col-xl">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Jenis Ciptaan</h5>
-                        <a href="{{route("sub_jenis_ciptaan.create")}}" class="btn btn-primary btn-sm text-white">Tambah</a>
-                        <table class="table mt-3">
+                        <h5 class="card-title-lg">Sub Jenis Ciptaan</h5>
+                        <a href="{{route("sub_jenis_ciptaan.create")}}" class="btn btn-primary btn-sm text-white mb-3">Tambah</a>
+                        <table id="myTable" class="table table-responsive-sm mt-5">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Nomor</th>
@@ -35,10 +35,10 @@
                                 @foreach ($datas as $data)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$data->jenis_ciptaan_id}}</td>
+                                    <td>{{$data->jenisCiptaan->nama_jenis_ciptaan}}</td>
                                     <td>{{$data->nama_sub_jenis_ciptaan}}</td>
                                     <td>
-                                        <a href="{{route('sub_jenis_ciptaan.edit', $data->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{route('sub_jenis_ciptaan.edit', $data->id)}}" class="btn btn-warning btn-sm float-left mr-2">Edit</a>
 
                                         <form method="POST" action="{{route('sub_jenis_ciptaan.destroy', $data->id)}}">
                                             @csrf
@@ -57,3 +57,21 @@
     </div>
 </div>
 @endsection
+
+@push('dataTable')
+            <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+            <script>
+                $(document).ready( function () {
+                    $('#myTable').DataTable({
+                        dom: 'Bfrtip',
+                        buttons: [
+                            'copy', 'csv', 'excel', 'pdf', 'print'
+                        ]
+                    });
+                } );
+            </script>
+@endpush
+
+@push('dataTableStyles')
+    <link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+@endpush
