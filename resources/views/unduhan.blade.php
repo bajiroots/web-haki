@@ -27,7 +27,7 @@
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
+        <div class="container-fluid" data-aos="fade-up">
             <div class="row gy-4">
                 {{-- <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
                     <img src="assets/img/about.jpg" class="img-fluid" alt="">
@@ -49,7 +49,7 @@
                         <div class="card">
                             <img src="{{ asset('assets/unduhan/img/a.jpg') }}" alt="" class="card-img-top">    
                             <div class="card-body">
-                                <p class="card-text">FORMULIR PERMOHONAN PENCATATAN LISENSI</p>
+                                <p class="card-text" style="font-size:1.3vw !important">FORMULIR PERMOHONAN PENCATATAN LISENSI</p>
                             </div>
                         </div>
                     </a>

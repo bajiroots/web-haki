@@ -53,7 +53,7 @@ class LoginController extends Controller
         
         if(auth()->attempt(array('username' => $input['username'], 'password' => $input['password'])))
         {
-            return redirect()->route('home');
+            return redirect()->route('dashboard-admin');
         }else{
             return redirect()->route('login')
                 ->with('error','Gagal Login.. Email-Address Atau Password Salah.');

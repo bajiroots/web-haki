@@ -14,7 +14,8 @@
                   <span>Admin</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Log out</a>
+                  <a class="dropdown-item" href="" onclick="event.preventDefault();document.getElementById('logout-form').submit()" >Log out</a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>
               </div>
           </li>
       </ul>

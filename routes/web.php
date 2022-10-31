@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'admin'], function(){
-    Route::get('/', [DashboardController::class, 'index']);
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard-admin');
     Route::resource('jenis_permohonan', JenisPermohonanController::class);
     Route::resource('jenis_ciptaan', JenisCiptaanController::class);
     Route::resource('sub_jenis_ciptaan', SubJenisCiptaanController::class);

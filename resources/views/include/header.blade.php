@@ -36,7 +36,7 @@
                     </ul>
                 </li>
                 <!-- <li><a href="contact.html">Contact</a></li> -->
-                <li><a class="get-a-quote" href="get-a-quote.html">Login</a></li>
+                <li><a class="get-a-quote" href="{{ route('login') }}">Login</a></li>
             </ul>
         </nav><!-- .navbar -->
 

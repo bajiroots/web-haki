@@ -16,17 +16,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-2 col-6 footer-links">
-                <h4>Useful Links</h4>
-                <ul>
-                    <li><a href="#">Beranda</a></li>
-                    <li><a href="#">Permohonan</a></li>
-                    <li><a href="#">Unduhan</a></li>
-                    <li><a href="#">Tentang</a></li>
-                </ul>
-            </div>
 
-            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <div class="col-lg-5 col-md-12 footer-contact text-right text-md-start">
                 <h4>Kontak kami</h4>
                 <p>
                     Sungai Keledang, Kec. Samarinda Seberang, Kota Samarinda<br>
@@ -36,6 +27,16 @@
                     <strong>Email:</strong> info@example.com<br>
                 </p>
 
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Permohonan</a></li>
+                    <li><a href="#">Unduhan</a></li>
+                    <li><a href="#">Tentang</a></li>
+                </ul>
             </div>
 
         </div>
