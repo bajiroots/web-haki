@@ -71,29 +71,6 @@
             <div class="col-xl">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Data Kuasa</h5>
-                            <div class="form-group">
-                                <label>Melalui Kuasa</label>   
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">No</label>
-                                </div>                                  
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xl">
-                <div class="card">
-                    <div class="card-body">
                         <h5 class="card-title float-left">Data Pencipta <span class="required" style="color: red">*</span> </h5>
                         <a href="" class="btn btn-primary btn-sm text-white mb-3 float-right">Tambah</a>
                         <table id="" class="table table-responsive-sm mt-5">
@@ -122,55 +99,10 @@
             <div class="col-xl">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title float-left">Data Pemegang Hak Cipta <span class="required" style="color: red">*</span> </h5>
-                        <a href="" class="btn btn-primary btn-sm text-white mb-3 float-right">Tambah</a>
-                        <table id="" class="table table-responsive-sm mt-5">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Kewarganegaraan</th>
-                                    <th scope="col">Alamat</th>
-                                    <th scope="col">Kode Pos</th>
-                                    <th scope="col">Kota</th>
-                                    <th scope="col">Provinsi</th>
-                                    <th scope="col">Email/No.Hp</th>
-                                    <th scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-xl">
-                <div class="card">
-                    <div class="card-body">
                         <h5 class="card-title">Lampiran</h5>
-                        <div class="row">
-                            <div class="col">
-                                <label>Salinan Resmi Akta Pendirian Badan Hukum</label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>    
-                                </div>
-                            </div>
+                        <div class="row my-3">
                             <div class="col">
                                 <label>Scan KTP Pemohon dan Pencipta <span class="required" style="color: red">*</span> </label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <label>Scan NPWP perorangan / perusahaan</label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="inputGroupFile01">
                                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>    
@@ -184,7 +116,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row my-3">
                             <div class="col">
                                 <label>Contoh Ciptaan <span class="required" style="color: red">*</span> </label>
                                 <div class="custom-file">
@@ -198,6 +130,18 @@
                                     <input type="file" class="custom-file-input" id="inputGroupFile01">
                                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>    
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col">
+                                <label>Bukti Bayar </label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>    
+                                </div>
+                                <span class="required" style="color: red">
+                                    <i> <br> <b>*Pembayaran dilakukan via transfer BNI 0388820578 an. Reza Andrea</b> </i>
+                                </span>
                             </div>
                         </div>
                         <div class="form-group">
