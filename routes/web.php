@@ -4,7 +4,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JenisPermohonanController;
 use App\Http\Controllers\JenisCiptaanController;
 use App\Http\Controllers\SubJenisCiptaanController;
+use App\Http\Controllers\PermohonanHakiController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::resource('jenis_permohonan', JenisPermohonanController::class);
     Route::resource('jenis_ciptaan', JenisCiptaanController::class);
     Route::resource('sub_jenis_ciptaan', SubJenisCiptaanController::class);
+    Route::resource('permohonan_haki', PermohonanHakiController::class);
 });
 
 Route::get('/', function () {

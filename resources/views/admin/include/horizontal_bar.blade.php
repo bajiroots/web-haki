@@ -25,7 +25,7 @@
                             <a href="#">Hak Cipta<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>
                                 <li>
-                                    <a href="mailbox.html">Permohonan Baru</a>
+                                    <a href="{{route('permohonan_haki.index')}}">Permohonan Baru</a>
                                 </li>
                                 <li>
                                     <a href="profile.html">Daftar Ciptaan</a>
