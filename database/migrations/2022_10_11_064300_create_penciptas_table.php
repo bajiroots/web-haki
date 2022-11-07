@@ -15,6 +15,7 @@ class CreatePenciptasTable extends Migration
     {
         Schema::create('penciptas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('permohonan_id')->constrained();
             $table->foreignId('kota_id')->constrained();
             $table->string('nama');
             $table->string('email');
