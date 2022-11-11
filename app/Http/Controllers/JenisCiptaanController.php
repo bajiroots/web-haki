@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\JenisCiptaan;
+use App\Models\BiayaJenisCiptaan;
 use App\Models\JenisPermohonan;
 
 class JenisCiptaanController extends Controller
@@ -40,19 +41,15 @@ class JenisCiptaanController extends Controller
      */
     public function store(Request $request)
     {
-        // Cegah data duplikat
-        $cek_duplikat = JenisCiptaan::where('nama_jenis_ciptaan', $request->jenis_ciptaan)->where('jenis_permohonan_id', $request->jenis_permohonan_id)->first();
-        if ($cek_duplikat) {
-            $cek_duplikat->update([
-                'nama_jenis_ciptaan' => $request->jenis_ciptaan,
-                'jenis_permohonan_id' => $request->jenis_permohonan_id,
-                'biaya' => $request->biaya,
-            ]);
-        }else{
-            JenisCiptaan::create([
-                'nama_jenis_ciptaan' => $request->jenis_ciptaan,
-                'jenis_permohonan_id' => $request->jenis_permohonan_id,
-                'biaya' => $request->biaya,
+        $jenis_ciptaan = JenisCiptaan::create([
+            'nama_jenis_ciptaan' => $request->jenis_ciptaan,
+        ]);
+
+        for ($i=0; $i < count($request->biaya); $i++) { 
+            BiayaJenisCiptaan::create([
+                'jenis_ciptaan_id' => $jenis_ciptaan->id,
+                'jenis_permohonan_id' => $request->jenis_permohonan_id[$i],
+                'biaya' => $request->biaya[$i],
             ]);
         }
 
@@ -94,12 +91,19 @@ class JenisCiptaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = JenisCiptaan::find($id);
-        $data->update([
+        $jenis_ciptaan = JenisCiptaan::find($id);
+        $jenis_ciptaan->update([
             'nama_jenis_ciptaan' => $request->jenis_ciptaan,
-            'jenis_permohonan_id' => $request->jenis_permohonan_id  ,
-            'biaya' => $request->biaya,
         ]);
+
+        $jenis_ciptaan->biayaJenisCiptaan()->delete();
+        for ($i=0; $i < count($request->biaya); $i++) { 
+            BiayaJenisCiptaan::create([
+                'jenis_ciptaan_id' => $jenis_ciptaan->id,
+                'jenis_permohonan_id' => $request->jenis_permohonan_id[$i],
+                'biaya' => $request->biaya[$i],
+            ]);
+        }
 
         return redirect(route('jenis_ciptaan.index'));
     }

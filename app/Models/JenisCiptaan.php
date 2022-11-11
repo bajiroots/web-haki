@@ -10,8 +10,7 @@ class JenisCiptaan extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function jenisPermohonan()
-    {
-        return $this->belongsTo(JenisPermohonan::class);
+    public function biayaJenisCiptaan(){
+        return $this->hasMany(BiayaJenisCiptaan::class);
     }
 }
