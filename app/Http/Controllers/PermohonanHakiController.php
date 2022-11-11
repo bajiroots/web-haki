@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Permohonan;
+use App\Models\JenisCiptaan;
+use App\Models\JenisPermohonan;
+use App\Models\SubJenisCiptaan;
 
 class PermohonanHakiController extends Controller
 {
@@ -27,7 +30,9 @@ class PermohonanHakiController extends Controller
      */
     public function create()
     {
-        return view("admin.jenis_ciptaan.create");
+        $jenisCiptaan = JenisCiptaan::all();
+        $jenisPermohonan = JenisPermohonan::all();
+        return view("admin.permohonan_haki.create", compact("jenisCiptaan", "jenisPermohonan"));
     }
 
     /**
@@ -55,6 +60,7 @@ class PermohonanHakiController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
@@ -101,5 +107,14 @@ class PermohonanHakiController extends Controller
         $data->delete();
 
         return redirect(route('jenis_ciptaan.index'));
+    }
+
+    public function getSubJenisCiptaan($id)
+    {
+        $data = SubJenisCiptaan::where('jenis_ciptaan_id', $id)->get();
+        return response()->json([
+            'status' => "success",
+            'data' => $data
+        ]);
     }
 }
