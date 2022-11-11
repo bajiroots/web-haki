@@ -27,6 +27,7 @@
                                 <tr>
                                     <th scope="col">Nomor</th>
                                     <th scope="col">Jenis Ciptaan</th>
+                                    <th scope="col">Kategori Jenis Permohonan</th>
                                     <th scope="col">Biaya</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -36,7 +37,8 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$data->nama_jenis_ciptaan}}</td>
-                                    <td>{{$data->biaya}}</td>
+                                    <td>{{$data->jenisPermohonan->nama_jenis_permohonan}}</td>
+                                    <td>Rp. {{ number_format($data->biaya)}}</td>
                                     <td>
                                         <a href="{{route('jenis_ciptaan.edit', $data->id)}}" class="btn btn-warning btn-sm float-left mr-2">Edit</a>
 

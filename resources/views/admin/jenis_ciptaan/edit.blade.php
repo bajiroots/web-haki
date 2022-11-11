@@ -27,6 +27,19 @@
                             <div class="form-group">
                                 <label>Nama Jenis Ciptaan</label>
                                 <input type="text" value="{{$data->nama_jenis_ciptaan}}" name="jenis_ciptaan" required class="form-control mb-3" placeholder="Contoh: Karya Tulis">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Pilih Jenis Permohonan</label>
+                                <select name="jenis_permohonan_id" class="form-control">
+                                    <option value="">Pilih Jenis Permohonan</option>
+                                    @foreach ($jenis_permohonan as $jenis)
+                                        <option value="{{ $jenis->id }}" @if($jenis->id == $data->jenis_permohonan_id) selected @endif >{{ $jenis->nama_jenis_permohonan }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label>Biaya</label>
                                 <input type="text" value="{{$data->biaya}}" name="biaya" required class="form-control mb-3" placeholder="Contoh: 200000">
                             </div>

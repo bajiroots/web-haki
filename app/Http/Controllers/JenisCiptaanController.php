@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\JenisCiptaan;
+use App\Models\JenisPermohonan;
 
 class JenisCiptaanController extends Controller
 {
@@ -27,7 +28,8 @@ class JenisCiptaanController extends Controller
      */
     public function create()
     {
-        return view("admin.jenis_ciptaan.create");
+        $jenis_permohonan = JenisPermohonan::all();
+        return view("admin.jenis_ciptaan.create", compact('jenis_permohonan'));
     }
 
     /**
@@ -38,10 +40,21 @@ class JenisCiptaanController extends Controller
      */
     public function store(Request $request)
     {
-        JenisCiptaan::create([
-            'nama_jenis_ciptaan' => $request->jenis_ciptaan,
-            'biaya' => $request->biaya,
-        ]);
+        // Cegah data duplikat
+        $cek_duplikat = JenisCiptaan::where('nama_jenis_ciptaan', $request->jenis_ciptaan)->where('jenis_permohonan_id', $request->jenis_permohonan_id)->first();
+        if ($cek_duplikat) {
+            $cek_duplikat->update([
+                'nama_jenis_ciptaan' => $request->jenis_ciptaan,
+                'jenis_permohonan_id' => $request->jenis_permohonan_id,
+                'biaya' => $request->biaya,
+            ]);
+        }else{
+            JenisCiptaan::create([
+                'nama_jenis_ciptaan' => $request->jenis_ciptaan,
+                'jenis_permohonan_id' => $request->jenis_permohonan_id,
+                'biaya' => $request->biaya,
+            ]);
+        }
 
         return redirect(route('jenis_ciptaan.index'));
     }
@@ -65,9 +78,10 @@ class JenisCiptaanController extends Controller
      */
     public function edit($id)
     {
+        $jenis_permohonan = JenisPermohonan::all();
         $data = JenisCiptaan::find($id);
 
-        return view("admin.jenis_ciptaan.edit", compact('data'));
+        return view("admin.jenis_ciptaan.edit", compact('data', 'jenis_permohonan'));
         
     }
 
@@ -83,6 +97,7 @@ class JenisCiptaanController extends Controller
         $data = JenisCiptaan::find($id);
         $data->update([
             'nama_jenis_ciptaan' => $request->jenis_ciptaan,
+            'jenis_permohonan_id' => $request->jenis_permohonan_id  ,
             'biaya' => $request->biaya,
         ]);
 

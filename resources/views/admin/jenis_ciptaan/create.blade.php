@@ -23,9 +23,23 @@
                         <h5 class="card-title">Jenis Ciptaan</h5>
                         <form method="POST" action="{{route('jenis_ciptaan.store')}}">
                             @csrf
+
                             <div class="form-group">
                                 <label>Nama Jenis Ciptaan</label>
                                 <input type="text" name="jenis_ciptaan" required class="form-control mb-3" placeholder="Contoh: Karya Tulis">
+                            </div>   
+                            
+                            <div class="form-group">
+                                <label>Pilih Jenis Permohonan</label>
+                                <select name="jenis_permohonan_id" class="form-control">
+                                    <option value="">Pilih Jenis Permohonan</option>
+                                    @foreach ($jenis_permohonan as $jenis)
+                                        <option value="{{ $jenis->id }}">{{ $jenis->nama_jenis_permohonan }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label>Biaya</label>
                                 <input type="text" name="biaya" required class="form-control mb-3" placeholder="Contoh: 200000">
                             </div>
