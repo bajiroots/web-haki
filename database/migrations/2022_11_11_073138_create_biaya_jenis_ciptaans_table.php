@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJenisCiptaansTable extends Migration
+class CreateBiayaJenisCiptaansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateJenisCiptaansTable extends Migration
      */
     public function up()
     {
-        Schema::create('jenis_ciptaans', function (Blueprint $table) {
+        Schema::create('biaya_jenis_ciptaans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_jenis_ciptaan');
+            $table->foreignId('jenis_ciptaan_id')->constrained();
+            $table->foreignId('jenis_permohonan_id')->constrained();
+            $table->string('biaya');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateJenisCiptaansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jenis_ciptaans');
+        Schema::dropIfExists('biaya_jenis_ciptaans');
     }
 }
