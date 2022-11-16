@@ -16,7 +16,7 @@
     </div>
 
     <div class="caption">
-        <h1 class="text-center">Permohonan Pencatatan Ciptaan Secara Elektronik</h1>
+        <h3 class="text-center">Permohonan Pencatatan Ciptaan Secara Elektronik</h3>
     </div>
 
     <div class="main-wrapper container">
@@ -39,7 +39,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Jenis Ciptaan <span class="required" style="color: red">*</span> </label>
-                                <select class="form-control mb-3" name="jenis_ciptaan" required>
+                                <select class="js-states form-control mb-3" name="jenis_ciptaan" required>
                                     <option value=""> Pilih Jenis Ciptaan </option>
                                     @foreach ($jenisCiptaan as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_jenis_ciptaan }}</option>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Sub Jenis Ciptaan <span class="required" style="color: red">*</span> </label>
-                                <select class="form-control mb-3" name="sub_jenis_ciptaan" required>
+                                <select class=" js-states form-control mb-3" name="sub_jenis_ciptaan" required>
                                     <option value=""> Pilih Jenis Ciptaan Dahulu </option>
                                     
                                 </select>
@@ -151,7 +151,7 @@
                         </div>
                         <div class="row my-3">
                             <div class="col">
-                                <label>Bukti Bayar </label>
+                                <label>Bukti Bayar <span class="required" style="color: red">*</span></label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="inputGroupFile01">
                                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
@@ -181,10 +181,10 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="modalPencipta" tabindex="-1" role="dialog" aria-labelledby="modalPenciptaLabel"
+    <div class="modal fade " id="modalPencipta" tabindex="-1" role="dialog" aria-labelledby="modalPenciptaLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalPenciptaLabel">Tambah Data Pencipta</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -193,24 +193,24 @@
                 </div>
                 <div class="modal-body">
                             <div class="form-group">
-                                <label for="namaPencipta">Nama</label>
-                                <input type="text" class="form-control" id="namaPencipta" required placeholder="">
+                                <label for="namaPencipta">Nama <span class="required" style="color: red">*</span></label>
+                                <input type="text" class="form-control" id="namaPencipta" required placeholder="Masukkan Nama Lengkap Anda">
                             </div>
                             <div class="form-group">
-                                <label for="emailPencipta">Email</label>
-                                <input type="email" class="form-control" id="emailPencipta" required placeholder="">
+                                <label for="emailPencipta">Email <span class="required" style="color: red">*</span></label>
+                                <input type="email" class="form-control" id="emailPencipta" required placeholder="Masukkan Email Anda">
                             </div>
                             <div class="form-group">
-                                <label for="noTelpPencipta">No Telp</label>
-                                <input type="number" class="form-control" id="noTelpPencipta" required placeholder="">
+                                <label for="noTelpPencipta">No Telp <span class="required" style="color: red">*</span></label>
+                                <input type="number" class="form-control" id="noTelpPencipta" required placeholder="Masukkan Nomor Telp Anda">
                             </div>
                             <div class="form-group">
-                            <label for="alamatPencipta">Alamat</label>
-                            <textarea class="form-control" id="alamatPencipta" rows="3"></textarea>
+                            <label for="alamatPencipta">Alamat <span class="required" style="color: red">*</span></label>
+                            <textarea class="form-control" id="alamatPencipta" rows="3" placeholder="Masukkan Alamat"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="kodePosPencipta">Kode Pos</label>
-                                <input type="number" class="form-control" id="kodePosPencipta" required placeholder="">
+                                <label for="kodePosPencipta">Kode Pos <span class="required" style="color: red">*</span></label>
+                                <input type="number" class="form-control" id="kodePosPencipta" required placeholder="Masukkan Kope Pos">
                             </div>
                 </div>
                 <div class="modal-footer">

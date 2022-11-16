@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\JenisCiptaan;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,9 @@ class DatabaseSeeder extends Seeder
             KotaSeeder::class,
             UserSeeder::class,
             JenisPermohonanSeeder::class,
+            JenisCiptaanSeeder::class,
+            BiayaJenisCiptaanSeeder::class,
+            SubJenisCiptaanSeeder::class,
         ]);
     }
 }

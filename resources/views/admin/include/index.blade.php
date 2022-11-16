@@ -18,6 +18,7 @@
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
         <link href="{{ asset('assets_admin/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('assets_admin/plugins/font-awesome/css/all.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets_admin/plugins/select2/css/select2.min.css') }}" rel="stylesheet">   
 
         {{-- datatables styles --}}
         @stack('dataTableStyles')
@@ -60,7 +61,9 @@
         <script src="{{ asset('assets_admin/plugins/flot/jquery.flot.symbol.min.js') }}"></script>
         <script src="{{ asset('assets_admin/plugins/flot/jquery.flot.resize.min.js') }}"></script>
         <script src="{{ asset('assets_admin/plugins/flot/jquery.flot.tooltip.min.js') }}"></script>
+        <script src="{{ asset('assets_admin/plugins/select2/js/select2.full.min.js') }}"></script>
         <script src="{{ asset('assets_admin/js/connect.min.js') }}"></script>
+        <script src="{{ asset('assets_admin/js/pages/select2.js') }}"></script>
 
         {{-- datatables script --}}
         @stack('dataTable')
