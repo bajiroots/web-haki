@@ -7,6 +7,9 @@ use App\Models\Permohonan;
 use App\Models\JenisCiptaan;
 use App\Models\JenisPermohonan;
 use App\Models\SubJenisCiptaan;
+use App\Models\BiayaJenisCiptaan;
+use App\Models\Provinsi;
+use App\Models\Kota;
 
 class PermohonanHakiController extends Controller
 {
@@ -19,6 +22,7 @@ class PermohonanHakiController extends Controller
     public function index()
     {
         $datas = Permohonan::all();
+        
 
         return view("admin.permohonan_haki.index", compact('datas'));
     }
@@ -32,7 +36,9 @@ class PermohonanHakiController extends Controller
     {
         $jenisCiptaan = JenisCiptaan::all();
         $jenisPermohonan = JenisPermohonan::all();
-        return view("admin.permohonan_haki.create", compact("jenisCiptaan", "jenisPermohonan"));
+        $provinsis = Provinsi::all();
+
+        return view("admin.permohonan_haki.create", compact("jenisCiptaan", "jenisPermohonan", "provinsis"));
     }
 
     /**
@@ -43,6 +49,7 @@ class PermohonanHakiController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         JenisCiptaan::create([
             'nama_jenis_ciptaan' => $request->jenis_ciptaan,
             'biaya' => $request->biaya,
@@ -109,9 +116,26 @@ class PermohonanHakiController extends Controller
         return redirect(route('jenis_ciptaan.index'));
     }
 
-    public function getSubJenisCiptaan($id)
+    public function getSubJenisCiptaan($jenis_permohonan_id, $jenis_ciptaan_id)
     {
-        $data = SubJenisCiptaan::where('jenis_ciptaan_id', $id)->get();
+        $sub_jenis_ciptaan = SubJenisCiptaan::where('jenis_ciptaan_id', $jenis_ciptaan_id)->get();
+        $biaya = BiayaJenisCiptaan::where('jenis_permohonan_id', $jenis_permohonan_id)->where('jenis_ciptaan_id', $jenis_ciptaan_id)->first();
+
+        $data = [
+            'sub_jenis_ciptaan' => $sub_jenis_ciptaan,
+            'biaya' => $biaya,
+        ];
+        
+        return response()->json([
+            'status' => "success",
+            'data' => $data
+        ]);
+    }
+
+    public function getKota($provinsi_id)
+    {
+        $data = Kota::where('provinsi_id', $provinsi_id)->get();
+        
         return response()->json([
             'status' => "success",
             'data' => $data

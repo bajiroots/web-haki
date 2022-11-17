@@ -10,7 +10,7 @@
         <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         
         <!-- Title -->
-        <title>Connect - Responsive Admin Dashboard Template</title>
+        <title>WEB HAKI</title>
 
         <!-- Styles -->
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
         <link href="{{ asset('assets_admin/plugins/select2/css/select2.min.css') }}" rel="stylesheet">   
 
         {{-- datatables styles --}}
+        @stack('css')
         @stack('dataTableStyles')
 
         <!-- Theme Styles -->

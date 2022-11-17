@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('sub-jenis-ciptaan/{id}', [App\Http\Controllers\PermohonanHakiController::class, 'getSubJenisCiptaan']);
+Route::get('sub-jenis-ciptaan/{jenis_permohonan_id}/{jenis_ciptaan_id}', [App\Http\Controllers\PermohonanHakiController::class, 'getSubJenisCiptaan']);
+Route::get('kota/{provinsi_id}', [App\Http\Controllers\PermohonanHakiController::class, 'getKota']);
 
 
 
