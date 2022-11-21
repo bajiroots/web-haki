@@ -28,8 +28,8 @@ class CreatePermohonansTable extends Migration
             $table->string('contoh_ciptaan_wajib');
             $table->string('bukti_pengalihan_hak_cipta')->nullable();
             $table->enum('status',['proses','terima','tolak']);
-            $table->string('no_sertifikat');
-            $table->string('foto_sertifikat');
+            $table->string('no_sertifikat')->nullable();
+            $table->string('foto_sertifikat')->nullable();
             $table->timestamps();
         });
     }
