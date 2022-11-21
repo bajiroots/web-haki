@@ -38,11 +38,13 @@
                                     <td>
                                         <a href="{{route('jenis_permohonan.edit', $data->id)}}" class="btn btn-warning btn-sm float-left mr-2">Edit</a>
 
-                                        <form method="POST" action="{{route('jenis_permohonan.destroy', $data->id)}}">
-                                            @csrf
-                                            {{method_field("DELETE")}}
-                                            <button class="btn btn-danger btn-sm">Delete</button>
-                                        </form>
+                                        @if ($data->nama_jenis_permohonan != 'UMUM' AND $data->nama_jenis_permohonan != 'POLITANI') 
+                                            <form method="POST" action="{{route('jenis_permohonan.destroy', $data->id)}}">
+                                                @csrf
+                                                {{method_field("DELETE")}}
+                                                <button class="btn btn-danger btn-sm btnDelete">Delete</button>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
@@ -57,6 +59,30 @@
 @endsection
 
 @push('dataTable')
+            {{-- // JS untuk sweet alert sebelum menghapus --}}
+            <script>
+                $('.btnDelete').click(function(event) {
+                    const form =  $(this).closest("form");
+                    const name = $(this).data("name");
+                    event.preventDefault();
+                    swal.fire({
+                        title: `Apakah Anda yakin ingin Menghapus Data ini?`,
+                        text: "Data yang dihapus akan hilang selamanya.",
+                        icon: "warning",
+                        buttons: true,
+                        showCancelButton: true,
+                        dangerMode: true,
+                        cancelButtonColor: '#d33',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                    })
+                    .then((result) => {
+                        if (result.dismiss !== "cancel") {
+                            form.submit();
+                        }
+                    });
+                });
+            </script>
             <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
             <script>
                 $(document).ready( function () {

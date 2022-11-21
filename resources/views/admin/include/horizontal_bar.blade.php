@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="horizontal-bar-menu">
                     <ul>
-                        <li><a href="index.html" class="active">Dashboard</a></li>
+                        <li><a href="{{ route('dashboard-admin') }}" class="active">Dashboard</a></li>
                         <li>
                             <a href="#">Master Data<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>

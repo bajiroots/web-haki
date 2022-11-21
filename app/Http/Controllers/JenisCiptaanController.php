@@ -53,7 +53,7 @@ class JenisCiptaanController extends Controller
             ]);
         }
 
-        return redirect(route('jenis_ciptaan.index'));
+        return redirect(route('jenis_ciptaan.index'))->with('success','Jenis Ciptaan Berhasil Ditambahkan !');
     }
 
     /**
@@ -105,7 +105,7 @@ class JenisCiptaanController extends Controller
             ]);
         }
 
-        return redirect(route('jenis_ciptaan.index'));
+        return redirect(route('jenis_ciptaan.index'))->with('success','Jenis Ciptaan Berhasil Diubah !');
     }
 
     /**
@@ -119,6 +119,6 @@ class JenisCiptaanController extends Controller
         $data = JenisCiptaan::find($id);
         $data->delete();
 
-        return redirect(route('jenis_ciptaan.index'));
+        return redirect(route('jenis_ciptaan.index'))->with('success','Jenis Ciptaan Berhasil Dihapus !');
     }
 }

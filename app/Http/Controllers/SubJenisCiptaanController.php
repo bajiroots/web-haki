@@ -45,7 +45,7 @@ class SubJenisCiptaanController extends Controller
             'nama_sub_jenis_ciptaan' => $request->sub_jenis_ciptaan,
         ]);
 
-        return redirect(route('sub_jenis_ciptaan.index'));
+        return redirect(route('sub_jenis_ciptaan.index'))->with('success','Sub Jenis Ciptaan Berhasil Ditambahkan !');
     }
 
     /**
@@ -89,7 +89,7 @@ class SubJenisCiptaanController extends Controller
             'nama_sub_jenis_ciptaan' => $request->sub_jenis_ciptaan,
         ]);
 
-        return redirect(route('sub_jenis_ciptaan.index'));
+        return redirect(route('sub_jenis_ciptaan.index'))->with('success','Sub Jenis Ciptaan Berhasil Diubah !');
     }
 
     /**
@@ -103,6 +103,6 @@ class SubJenisCiptaanController extends Controller
         $data = SubJenisCiptaan::find($id);
         $data->delete();
 
-        return redirect(route('sub_jenis_ciptaan.index'));
+        return redirect(route('sub_jenis_ciptaan.index'))->with('success','Sub Jenis Ciptaan Berhasil Dihapus !');
     }
 }

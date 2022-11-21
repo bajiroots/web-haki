@@ -250,6 +250,11 @@
 @endsection
 
 @section('js')
+
+{{-- select 2 js --}}
+<script src="{{ asset('assets_admin/js/pages/select2.js') }}"></script>
+{{-- end --}}
+
     <script>
         $(document).ready(function () {
             

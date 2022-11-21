@@ -55,7 +55,7 @@ class PermohonanHakiController extends Controller
             'biaya' => $request->biaya,
         ]);
 
-        return redirect(route('jenis_ciptaan.index'));
+        return redirect(route('jenis_ciptaan.index'))->with('success','Pengajuan Hak Cipta Berhasil Dikirim !');
     }
 
     /**
@@ -78,10 +78,7 @@ class PermohonanHakiController extends Controller
      */
     public function edit($id)
     {
-        $data = JenisCiptaan::find($id);
-
-        return view("admin.jenis_ciptaan.edit", compact('data'));
-        
+                
     }
 
     /**
@@ -93,13 +90,7 @@ class PermohonanHakiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = JenisCiptaan::find($id);
-        $data->update([
-            'nama_jenis_ciptaan' => $request->jenis_ciptaan,
-            'biaya' => $request->biaya,
-        ]);
-
-        return redirect(route('jenis_ciptaan.index'));
+        
     }
 
     /**
@@ -110,10 +101,7 @@ class PermohonanHakiController extends Controller
      */
     public function destroy($id)
     {
-        $data = JenisCiptaan::find($id);
-        $data->delete();
-
-        return redirect(route('jenis_ciptaan.index'));
+        
     }
 
     public function getSubJenisCiptaan($jenis_permohonan_id, $jenis_ciptaan_id)
