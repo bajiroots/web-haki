@@ -22,6 +22,7 @@ class CreatePermohonansTable extends Migration
             $table->string('tgl_pengajuan');
             $table->string('judul_ciptaan');
             $table->text('deskripsi');
+            $table->string('kota_pertama_diumumkan');
             $table->string('foto_bukti_bayar_wajib');
             $table->string('foto_ktp_wajib');
             $table->string('surat_pernyataan_wajib');
