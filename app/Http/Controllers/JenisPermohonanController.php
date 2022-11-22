@@ -41,7 +41,7 @@ class JenisPermohonanController extends Controller
             'nama_jenis_permohonan' => $request->jenis_permohonan,
         ]);
 
-        return redirect(route('jenis_permohonan.index'));
+        return redirect(route('jenis_permohonan.index'))->with('success','Jenis Permohonan Berhasil Ditambahkan !');
     }
 
     /**
@@ -83,7 +83,7 @@ class JenisPermohonanController extends Controller
             'nama_jenis_permohonan' => $request->jenis_permohonan,
         ]);
 
-        return redirect(route('jenis_permohonan.index'));
+        return redirect(route('jenis_permohonan.index'))->with('success','Jenis Permohonan Berhasil Diubah !');
     }
 
     /**
@@ -97,6 +97,6 @@ class JenisPermohonanController extends Controller
         $data = JenisPermohonan::find($id);
         $data->delete();
 
-        return redirect(route('jenis_permohonan.index'));
+        return redirect(route('jenis_permohonan.index'))->with('success','Jenis Permohonan Berhasil Dihapus !');
     }
 }

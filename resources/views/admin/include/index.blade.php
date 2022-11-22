@@ -64,7 +64,22 @@
         <script src="{{ asset('assets_admin/plugins/flot/jquery.flot.tooltip.min.js') }}"></script>
         <script src="{{ asset('assets_admin/plugins/select2/js/select2.full.min.js') }}"></script>
         <script src="{{ asset('assets_admin/js/connect.min.js') }}"></script>
-        <script src="{{ asset('assets_admin/js/pages/select2.js') }}"></script>
+        {{-- <script src="{{ asset('assets_admin/js/pages/select2.js') }}"></script> --}}
+
+        {{-- sweet alert js --}}
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
+        @if (session('success') !== null)
+            <script>
+                setTimeout(() => {
+                    Swal.fire(
+                    'Berhasil',
+                    '{{ session("success") }}',
+                    'success'
+                )
+                }, 1500);
+            </script>
+        @endif
 
         {{-- datatables script --}}
         @stack('dataTable')

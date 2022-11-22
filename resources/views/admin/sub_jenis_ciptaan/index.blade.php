@@ -43,7 +43,7 @@
                                         <form method="POST" action="{{route('sub_jenis_ciptaan.destroy', $data->id)}}">
                                             @csrf
                                             {{method_field("DELETE")}}
-                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                            <button class="btn btn-danger btn-sm btnDelete">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -59,6 +59,31 @@
 @endsection
 
 @push('dataTable')
+
+            {{-- // JS untuk sweet alert sebelum menghapus --}}
+            <script>
+                $('.btnDelete').click(function(event) {
+                    const form =  $(this).closest("form");
+                    const name = $(this).data("name");
+                    event.preventDefault();
+                    swal.fire({
+                        title: `Apakah Anda yakin ingin Menghapus Data ini?`,
+                        text: "Data yang dihapus akan hilang selamanya.",
+                        icon: "warning",
+                        buttons: true,
+                        showCancelButton: true,
+                        dangerMode: true,
+                        cancelButtonColor: '#d33',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                    })
+                    .then((result) => {
+                        if (result.dismiss !== "cancel") {
+                            form.submit();
+                        }
+                    });
+                });
+            </script>
             <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
             <script>
                 $(document).ready( function () {
