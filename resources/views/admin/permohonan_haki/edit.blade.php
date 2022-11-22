@@ -8,7 +8,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Hak Cipta</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Permohonan Baru</li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Permohonan</li>
                     </ol>
                 </nav>
             </div>
@@ -19,8 +19,9 @@
         <h3 class="text-center">Permohonan Pencatatan Ciptaan Secara Elektronik</h3>
     </div>
 
-<form method="POST" action="{{ route('permohonan_haki.store') }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('permohonan_haki.update', $data->id) }}" enctype="multipart/form-data">
     @csrf
+    {{ method_field("PUT") }}
     <div class="main-wrapper container">
         <div class="row">
             <div class="col-xl">
@@ -35,7 +36,7 @@
                                 <select class="form-control mb-3" name="jenis_permohonan" required>
                                     <option value=""> Pilih Jenis Permohonan </option>
                                     @foreach ($jenisPermohonan as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_jenis_permohonan }}</option>
+                                        <option value="{{ $item->id }}" @if($data->jenis_permohonan_id == $item->id) selected @endif >{{ $item->nama_jenis_permohonan }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -44,41 +45,51 @@
                                 <select class="js-states form-control mb-3" name="jenis_ciptaan" required>
                                     <option value=""> Pilih Jenis Ciptaan </option>
                                     @foreach ($jenisCiptaan as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_jenis_ciptaan }}</option>
+                                        <option value="{{ $item->id }}" @if($data->subJenisCiptaan->jenisCiptaan->id == $item->id) selected @endif >{{ $item->nama_jenis_ciptaan }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Sub Jenis Ciptaan <span class="required" style="color: red">*</span> </label>
                                 <select class=" js-states form-control mb-3" name="sub_jenis_ciptaan" required>
-                                    <option value=""> Pilih Jenis Ciptaan Dahulu </option>
+                                    <option value=""> Pilih Sub Jenis Ciptaan </option>
+                                    @foreach ($subJenisCiptaan as $item)
+                                        <option value="{{ $item->id }}" @if($data->sub_jenis_ciptaan_id == $item->id) selected @endif >{{ $item->nama_sub_jenis_ciptaan }}</option>
+                                    @endforeach
                                     
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Judul <span class="required" style="color: red">*</span> </label>
                                 <input type="text" name="judul" required class="form-control mb-3"
-                                    placeholder="Contoh: Atlas, Biografi, Booklet..">
+                                    placeholder="Contoh: Atlas, Biografi, Booklet.." value="{{ $data->judul_ciptaan }}">
                             </div>
                             <div class="form-group">
                                 <label>Uraian Singkat Ciptaan <span class="required" style="color: red">*</span>
                                 </label>
-                                <textarea class="form-control" name="uraian" id="" cols="10" rows="5"></textarea>
+                                <textarea class="form-control" name="uraian" id="" cols="10" rows="5"> {{ $data->deskripsi }} </textarea>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Pertama Kali Diumumkan <span class="required" style="color: red">*</span>
                                 </label>
                                 <input type="date" name="tanggal" required class="form-control mb-3"
-                                    placeholder="Contoh: Atlas, Biografi, Booklet..">
+                                    placeholder="Contoh: Atlas, Biografi, Booklet.." value="{{ $data->tgl_pengajuan }}">
                             </div>
                             <div class="form-group">
                                 <label>Kota Pertama Kali Diumumkan <span class="required" style="color: red">*</span>
                                 </label>
                                 <input type="text" name="kota_pertama_diumumkan" required class="form-control mb-3"
-                                    placeholder="Contoh: Atlas, Biografi, Booklet..">
+                                    placeholder="Contoh: Atlas, Biografi, Booklet.." value="{{ $data->kota_pertama_diumumkan }}">
                             </div>
                             <div id="pencipta-wrapper">
-
+                                @foreach ($data->pencipta as $pencipta)
+                                    <input type"hidden" style="display: none !important;" value="{{ $pencipta->nama }}" name="namaPencipta[]">
+                                    <input type"hidden" style="display: none !important;" value="{{ $pencipta->alamat }}" name="alamatPencipta[]">
+                                    <input type"hidden" style="display: none !important;" value="{{ $pencipta->kode_pos }}" name="kodePosPencipta[]">
+                                    <input type"hidden" style="display: none !important;" value="{{ $pencipta->kota_id }}" name="kotaPencipta[]">
+                                    <input type"hidden" style="display: none !important;" value="{{ $pencipta->email }}" name="emailPencipta[]">
+                                    <input type"hidden" style="display: none !important;" value="{{ $pencipta->no_telp }}" name="noTelpPencipta[]">
+                                @endforeach
                             </div>
                     </div>
                 </div>
@@ -108,7 +119,19 @@
                                 </tr>
                             </thead>
                             <tbody id="wrapper">
-
+                                @foreach ($data->pencipta as $pencipta)
+                                    <tr>
+                                        <td>{{ $pencipta->nama }}</td>
+                                        <td>{{ $pencipta->alamat }}</td>
+                                        <td>{{ $pencipta->kode_pos }}</td>
+                                        <td>{{ $pencipta->kota->provinsi->nama_provinsi }}</td>
+                                        <td>{{ $pencipta->kota->nama_kota }}</td>
+                                        <td>{{ $pencipta->email }}</td>
+                                        <td class="text-center">
+                                            <a href="javascript:void(0)" id="btn-delete-pencipta"  class="btn btn-danger btn-sm">DELETE</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -125,15 +148,25 @@
                             <div class="col">
                                 <label>Scan KTP Pemohon dan Pencipta <span class="required" style="color: red">* <i style="text-size:11px;">(Ekstensi : Pdf)</i> </span>
                                 </label>
+                                @if($data->foto_ktp_wajib)
+                                <p><a href="{{ asset('storage/'.$data->foto_ktp_wajib) }}" target="_blank">Inputan Sebelumnya</a></p>
+                                @else
+                                <p> <a href="#!"  class="text-danger"> Tidak Ada Inputan Sebelumnya </a> </p>
+                                @endif
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="ktp" id="ktp" required>
+                                    <input type="file" class="custom-file-input" name="ktp" id="ktp">
                                     <label class="custom-file-label" id="label_ktp" for="ktp">Choose file</label>
                                 </div>
                             </div>
                             <div class="col">
                                 <label>Surat Pernyataan <span class="required" style="color: red">* <i style="text-size:11px;">(Ekstensi : Pdf)</i></span> </label>
+                                @if($data->surat_pernyataan_wajib)
+                                <p><a href="{{ asset('storage/'.$data->surat_pernyataan_wajib) }}" target="_blank">Inputan Sebelumnya</a></p>
+                                @else
+                                <p> <a href="#!"  class="text-danger"> Tidak Ada Inputan Sebelumnya </a> </p>
+                                @endif
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="surat_pernyataan" id="surat_pernyataan" required>
+                                    <input type="file" class="custom-file-input" name="surat_pernyataan" id="surat_pernyataan">
                                     <label class="custom-file-label" id="label_surat_pernyataan" for="surat_pernyataan">Choose file</label>
                                 </div>
                             </div>
@@ -141,13 +174,23 @@
                         <div class="row my-3">
                             <div class="col">
                                 <label>Contoh Ciptaan <span class="required" style="color: red">*</span> </label>
+                                @if($data->contoh_ciptaan_wajib)
+                                <p><a href="{{ asset('storage/'.$data->contoh_ciptaan_wajib) }}" target="_blank">Inputan Sebelumnya</a></p>
+                                @else
+                                <p> <a href="#!"  class="text-danger"> Tidak Ada Inputan Sebelumnya </a> </p>
+                                @endif
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="contoh_ciptaan" id="contoh_ciptaan" required>
+                                    <input type="file" class="custom-file-input" name="contoh_ciptaan" id="contoh_ciptaan">
                                     <label class="custom-file-label" id="label_contoh_ciptaan" for="contoh_ciptaan">Choose file</label>
                                 </div>
                             </div>
                             <div class="col">
                                 <label>Bukti Pengalihan Hak Cipta <i style="color: red; text-size:11px;">(Ekstensi : Pdf)</i></label>
+                                @if($data->bukti_pengalihan_hak_cipta)
+                                <p><a href="{{ asset('storage/'.$data->bukti_pengalihan_hak_cipta) }}" target="_blank">Inputan Sebelumnya</a></p>
+                                @else
+                                <p> <a href="#!"  class="text-danger"> Tidak Ada Inputan Sebelumnya </a> </p>
+                                @endif
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="bukti_pengalihan" id="bukti_pengalihan">
                                     <label class="custom-file-label" id="label_bukti_pengalihan" for="bukti_pengalihan">Choose file</label>
@@ -157,8 +200,13 @@
                         <div class="row my-3">
                             <div class="col">
                                 <label>Bukti Bayar <span class="required" style="color: red">* <i style="text-size:11px;">(Ekstensi : Pdf, Gambar)</i></span></label>
+                                @if($data->foto_bukti_bayar_wajib)
+                                <p><a href="{{ asset('storage/'.$data->foto_bukti_bayar_wajib) }}" target="_blank">Inputan Sebelumnya</a></p>
+                                @else
+                                <p> <a href="#!"  class="text-danger"> Tidak Ada Inputan Sebelumnya </a> </p>
+                                @endif
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="bukti_bayar" id="bukti_bayar" required>
+                                    <input type="file" class="custom-file-input" name="bukti_bayar" id="bukti_bayar">
                                     <label class="custom-file-label" id="label_bukti_bayar" for="bukti_bayar">Choose file</label>
                                 </div>
                                 <span class="required" style="color: red">
@@ -169,7 +217,7 @@
                         </div>
                         <div class="form-group">
                             <label>Contoh Ciptaan (Link)</label>
-                            <textarea class="form-control" name="contoh_ciptaan_link" id="" cols="5" rows="2"></textarea>
+                            <textarea class="form-control" name="contoh_ciptaan_link" id="" cols="5" rows="2"> {{ $data->contoh_ciptaan_link }} </textarea>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
@@ -196,46 +244,46 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label for="namaPencipta">Nama <span class="required" style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="namaPencipta" placeholder="Masukkan Nama Lengkap Anda">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailPencipta">Email <span class="required" style="color: red">*</span></label>
+                        <input type="email" class="form-control" id="emailPencipta" placeholder="Masukkan Email Anda">
+                    </div>
+                    <div class="form-group">
+                        <label for="noTelpPencipta">No Telp <span class="required" style="color: red">*</span></label>
+                        <input type="number" class="form-control" id="noTelpPencipta" placeholder="Masukkan Nomor Telp Anda">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label for="namaPencipta">Nama <span class="required" style="color: red">*</span></label>
-                                <input type="text" class="form-control" id="namaPencipta" placeholder="Masukkan Nama Lengkap Anda">
-                            </div>
-                            <div class="form-group">
-                                <label for="emailPencipta">Email <span class="required" style="color: red">*</span></label>
-                                <input type="email" class="form-control" id="emailPencipta" placeholder="Masukkan Email Anda">
-                            </div>
-                            <div class="form-group">
-                                <label for="noTelpPencipta">No Telp <span class="required" style="color: red">*</span></label>
-                                <input type="number" class="form-control" id="noTelpPencipta" placeholder="Masukkan Nomor Telp Anda">
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <div for="provinsi">Provinsi <span class="required" style="color: red;">*</span></div>
-                                        <select class="form-control mb-3 js-states pasti" name="provinsi">
-                                            <option value=""> Pilih Provinsi </option>
-                                            @foreach ($provinsis as $item)
-                                                <option value="{{ $item->id }}">{{ $item->nama_provinsi }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="kota">Kota <span class="required" style="color: red">*</span></label>
-                                <select class="form-control mb-3" name="kota">
-                                    <option value=""> Pilih Provinsi Terlebih Dahulu </option>
+                                <div for="provinsi">Provinsi <span class="required" style="color: red;">*</span></div>
+                                <select class="form-control mb-3 js-states pasti" name="provinsi">
+                                    <option value=""> Pilih Provinsi </option>
+                                    @foreach ($provinsis as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_provinsi }}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="alamatPencipta">Alamat <span class="required" style="color: red">*</span></label>
-                                <textarea class="form-control" id="alamatPencipta" rows="3" placeholder="Masukkan Alamat"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="kodePosPencipta">Kode Pos <span class="required" style="color: red">*</span></label>
-                                <input type="number" class="form-control" id="kodePosPencipta" placeholder="Masukkan Kope Pos">
-                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="kota">Kota <span class="required" style="color: red">*</span></label>
+                        <select class="form-control mb-3" name="kota">
+                            <option value=""> Pilih Provinsi Terlebih Dahulu </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="alamatPencipta">Alamat <span class="required" style="color: red">*</span></label>
+                        <textarea class="form-control" id="alamatPencipta" rows="3" placeholder="Masukkan Alamat"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="kodePosPencipta">Kode Pos <span class="required" style="color: red">*</span></label>
+                        <input type="number" class="form-control" id="kodePosPencipta" placeholder="Masukkan Kope Pos">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

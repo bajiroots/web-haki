@@ -28,7 +28,7 @@
                                     <a href="{{route('permohonan_haki.create')}}">Permohonan Baru</a>
                                 </li>
                                 <li>
-                                    <a href="profile.html">Daftar Ciptaan</a>
+                                    <a href="{{ route('permohonan_haki.index') }}">Daftar Ciptaan</a>
                                 </li>
                             </ul>
                         </li>

@@ -10,7 +10,7 @@
         <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         
         <!-- Title -->
-        <title>Connect - Responsive Admin Dashboard Template</title>
+        <title>WEB HAKI</title>
 
         <!-- Styles -->
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" name="username" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                            <input type="text" name="username" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Username">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password" class="form-control" id="password" placeholder="Password">
