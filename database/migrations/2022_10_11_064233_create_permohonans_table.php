@@ -31,6 +31,7 @@ class CreatePermohonansTable extends Migration
             $table->enum('status',['proses','terima','tolak']);
             $table->string('no_sertifikat')->nullable();
             $table->string('foto_sertifikat')->nullable();
+            $table->string('contoh_ciptaan_link')->nullable();
             $table->timestamps();
         });
     }
