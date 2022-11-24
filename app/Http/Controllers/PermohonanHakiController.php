@@ -166,7 +166,7 @@ class PermohonanHakiController extends Controller
 
             DB::commit();
 
-            return redirect(route('permohonan_haki.index'));
+            return redirect(route('permohonan_haki.index'))->with('success','Pemohonan Hak Cipta Anda Berhasil Dikirim !');
 
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -185,6 +185,17 @@ class PermohonanHakiController extends Controller
     public function show($id)
     {
         //
+        $data = Permohonan::find($id);
+
+        $jenisPermohonan = JenisPermohonan::all();
+        $jenisCiptaan = JenisCiptaan::all();
+        $subJenisCiptaan = SubJenisCiptaan::where('jenis_ciptaan_id', $data->subJenisCiptaan->jenis_ciptaan_id)->get();
+        $provinsis = Provinsi::all();
+
+        // dd($data->SubJenisCiptaan->jenisCiptaan);
+        // dd($data->SubJenisCiptaan->jenisCiptaan->biayaJenisCiptaan->where('jenis_permohonan_id', $data->jenisPermohonan->id)->first()->biaya);
+        
+        return view("admin.permohonan_haki.show", compact("data", "jenisCiptaan", "jenisPermohonan", "provinsis", "subJenisCiptaan"));
         
     }
 
@@ -329,7 +340,7 @@ class PermohonanHakiController extends Controller
 
             DB::commit();
 
-            return redirect(route('permohonan_haki.index'));
+            return redirect(route('permohonan_haki.index'))->with('success','Pemohonan Hak Cipta Anda Berhasil Diubah !');
 
         } catch (\Throwable $th) {
             DB::rollBack();

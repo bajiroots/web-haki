@@ -18,4 +18,12 @@ class Permohonan extends Model
     public function pencipta(){
         return $this->hasMany(Pencipta::class);
     }
+
+    public function jenisPermohonan(){
+        return $this->belongsTo(JenisPermohonan::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

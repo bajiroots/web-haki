@@ -18,7 +18,7 @@
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
         <link href="{{ asset('assets_admin/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('assets_admin/plugins/font-awesome/css/all.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('assets_admin/plugins/select2/css/select2.min.css') }}" rel="stylesheet">   
+        <link href="{{ asset('assets_admin/plugins/select2/css/select2.min.css') }}" rel="stylesheet">  
 
         {{-- datatables styles --}}
         @stack('css')
@@ -65,6 +65,9 @@
         <script src="{{ asset('assets_admin/plugins/select2/js/select2.full.min.js') }}"></script>
         <script src="{{ asset('assets_admin/js/connect.min.js') }}"></script>
         {{-- <script src="{{ asset('assets_admin/js/pages/select2.js') }}"></script> --}}
+
+        {{-- bootsrapt 5 bundle js --}}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
         {{-- sweet alert js --}}
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

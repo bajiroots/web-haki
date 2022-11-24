@@ -46,7 +46,16 @@
                                     <td>{{ $data->created_at }}</td>
                                     <td>{{ $data->judul_ciptaan }}</td>
                                     <td>{{ $data->deskripsi }}</td>
-                                    <td>{{ $data->status }}</td>
+                                    <td>
+                                        @if($data->status === 'proses')
+                                            <span class="badge badge-warning">
+                                        @elseif($data->status === 'terima')
+                                            <span class="badge badge-success">
+                                        @else
+                                            <span class="badge badge-danger">
+                                        @endif
+                                            {{ strtoupper($data->status) }}</span>
+                                    </td>
                                     <td>
                                         <a href="{{route('permohonan_haki.edit', $data->id)}}" class="btn btn-warning btn-sm float-left mr-2 mb-2">Edit</a>
 
