@@ -146,7 +146,7 @@
                                     <label class="custom-file-label" id="label_contoh_ciptaan" for="contoh_ciptaan">Choose file</label>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" id='bukti'>
                                 <label>Bukti Pengalihan Hak Cipta <i style="color: red; text-size:11px;">(Ekstensi : Pdf)</i></label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="bukti_pengalihan" id="bukti_pengalihan">
@@ -383,6 +383,11 @@
 
             $("select[name=jenis_permohonan]").change(function (e) { 
                 getSubJenisCiptaanAndPrice();
+                if($(this).find(":selected").text() == 'UMUM'){
+                    $('#bukti').hide();
+                }else{
+                    $('#bukti').show();
+                }
             });
 
             $("select[name=provinsi]").change(function (e) {

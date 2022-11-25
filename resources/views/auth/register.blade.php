@@ -1,77 +1,118 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Responsive Admin Dashboard Template">
+        <meta name="keywords" content="admin,dashboard">
+        <meta name="author" content="stacks">
+        <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        
+        <!-- Title -->
+        <title>WEB HAKI</title>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+        <!-- Styles -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <link href=" {{ asset('assets_admin/plugins/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet">
+        <link href=" {{ asset('assets_admin/plugins/font-awesome/css/all.min.css') }} " rel="stylesheet">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+      
+        <!-- Theme Styles -->
+        <link href=" {{ asset('assets_admin/css/connect.min.css') }} " rel="stylesheet">
+        <link href=" {{ asset('assets_admin/css/admin2.css') }} " rel="stylesheet">
+        <link href=" {{ asset('assets_admin/css/dark_theme.css') }} " rel="stylesheet">
+        <link href=" {{ asset('assets_admin/css/custom.css') }} " rel="stylesheet">
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="auth-page sign-in">
+        
+        <div class='loader'>
+            <div class='spinner-grow text-primary' role='status'>
+                <span class='sr-only'>Loading...</span>
+            </div>
+        </div>
+        <div class="connect-container align-content-stretch d-flex flex-wrap">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="auth-form">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="logo-box"><a href="#" class="logo-text">Register</a></div>
+                                    <form action="{{ route('register') }}" method="POST">
+                                        <div class="form-group">
+                                            <label>Email <span class="required" style="color: red">*</span> </label>
+                                            <input type="email" class="form-control" name="email" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Username <span class="required" style="color: red">*</span> </label>
+                                            <input type="text" class="form-control" name="username" placeholder="Username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nama Lengkap <span class="required" style="color: red">*</span> </label>
+                                            <input type="text" class="form-control" name="name" placeholder="Nama Lengkap">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>No KTP <span class="required" style="color: red">*</span> </label>
+                                            <input type="number" class="form-control" name="no_ktp" placeholder="No KTP">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tgl Lahir <span class="required" style="color: red">*</span> </label>
+                                            <input type="date" class="form-control" name="tgl_lahir" placeholder="Tgl Lahir">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Alamat <span class="required" style="color: red">*</span> </label>
+                                            <textarea name="alamat" class="form-control" cols="30" rows="10"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kode POS <span class="required" style="color: red">*</span> </label>
+                                            <input type="number" class="form-control" name="kode_pos" placeholder="Kode POS">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Jenis Kelamin <span class="required" style="color: red">*</span> </label>
+                                            <select class="form-control mb-3" name="jenis_Kelamin" required>
+                                                <option value=""> Pilih Jenis Kelamin </option>
+                                                <option value="laki-laki"> Laki Laki </option>
+                                                <option value="perempuan"> Perempuan </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password <span class="required" style="color: red">*</span> </label>
+                                            <input type="password" class="form-control" name="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm Password <span class="required" style="color: red">*</span> </label>
+                                            <input type="password" class="form-control" name="cpassword">
+                                        </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                        <button type="submit" class="btn btn-primary btn-block btn-submit">Sign Up</button>
+                                        
+                                        <div class="auth-options">
+                                            <a href="{{ route('login') }}" class="forgot-link">Already have an account?</a>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+        
+        <!-- Javascripts -->
+        <script src=" {{ asset('assets_admin/plugins/jquery/jquery-3.4.1.min.js') }} "></script>
+        <script src=" {{ asset('assets_admin/plugins/bootstrap/popper.min.js') }} "></script>
+        <script src=" {{ asset('assets_admin/plugins/bootstrap/js/bootstrap.min.js') }} "></script>
+        <script src=" {{ asset('assets_admin/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }} "></script>
+        <script src=" {{ asset('assets_admin/js/connect.min.js') }} "></script>
+    </body>
+</html>

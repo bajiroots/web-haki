@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::resource('jenis_ciptaan', JenisCiptaanController::class);
     Route::resource('sub_jenis_ciptaan', SubJenisCiptaanController::class);
     Route::resource('permohonan_haki', PermohonanHakiController::class);
+    Route::POST('permohonan_haki/upload-sertifikat/{id}', [PermohonanHakiController::class, 'uploadSertifikat'])->name('permohonan_haki.uploadSertifikat');
 });
 
 Route::get('/', function () {

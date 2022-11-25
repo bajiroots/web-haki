@@ -6,29 +6,29 @@
             <div class="col">
                 <div class="horizontal-bar-menu">
                     <ul>
-                        <li><a href="{{ route('dashboard-admin') }}" class="active">Dashboard</a></li>
+                        <li><a href="{{ route('dashboard-admin') }}" class="{{ (request()->is('admin') ) ? 'active' : '' }}">Dashboard</a></li>
                         <li>
-                            <a href="#">Master Data<i class="material-icons">keyboard_arrow_down</i></a>
+                            <a href="#" class="{{ (request()->is('admin/jenis_permohonan*', 'admin/jenis_ciptaan*', 'admin/sub_jenis_ciptaan*') ) ? 'active' : '' }}">Master Data<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>
                                 <li>
-                                    <a href="{{route('jenis_permohonan.index')}}">Jenis Permohonan</a>
+                                    <a href="{{route('jenis_permohonan.index')}}" class="{{ (request()->is('admin/jenis_permohonan*') ) ? 'active' : '' }}">Jenis Permohonan</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('jenis_ciptaan.index')}}">Jenis Ciptaan</a>
+                                    <a href="{{route('jenis_ciptaan.index')}}" class="{{ (request()->is('admin/jenis_ciptaan*') ) ? 'active' : '' }}">Jenis Ciptaan</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('sub_jenis_ciptaan.index')}}">Sub Jenis Ciptaan</a>
+                                    <a href="{{route('sub_jenis_ciptaan.index')}}" class="{{ (request()->is('admin/sub_jenis_ciptaan*') ) ? 'active' : '' }}">Sub Jenis Ciptaan</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Hak Cipta<i class="material-icons">keyboard_arrow_down</i></a>
+                            <a href="#" class="{{ (request()->is('admin/permohonan_haki*') ) ? 'active' : '' }}">Hak Cipta<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>
                                 <li>
-                                    <a href="{{route('permohonan_haki.create')}}">Permohonan Baru</a>
+                                    <a href="{{route('permohonan_haki.create')}}" class="{{ (request()->is('admin/permohonan_haki/create') ) ? 'active' : '' }}">Permohonan Baru</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('permohonan_haki.index') }}">Daftar Ciptaan</a>
+                                    <a href="{{ route('permohonan_haki.index') }}" class="{{ (request()->is('admin/permohonan_haki', 'permohonan_haki/edit*', 'permohonan_haki/show*') ) ? 'active' : '' }}">Daftar Ciptaan</a>
                                 </li>
                             </ul>
                         </li>

@@ -172,7 +172,8 @@ class PermohonanHakiController extends Controller
             DB::rollBack();
             return redirect()->back()
                     ->withErrors($th->getMessage())
-                    ->withInput();
+                    ->withInput()
+                    ->with('error', 'pesan error');
         }
     }
 
@@ -241,9 +242,10 @@ class PermohonanHakiController extends Controller
             'kotaPencipta' => 'required|array',
             'emailPencipta' => 'required|array',
             'noTelpPencipta' => 'required|array',
-            'ktp' => 'mimes:pdf',
-            'surat_pernyataan' => 'mimes:pdf',
-            'bukti_bayar' => 'mimes:jpeg,png,jpg,gif,svg',
+            'ktp' => 'required|mimes:pdf',
+            'surat_pernyataan' => 'required|mimes:pdf',
+            'contoh_ciptaan' => 'required',
+            'bukti_bayar' => 'required|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         if ($validator->fails()) {
@@ -389,5 +391,52 @@ class PermohonanHakiController extends Controller
             'status' => "success",
             'data' => $data
         ]);
+    }
+
+    public function uploadSertifikat(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'no_sertifikat' => 'required',
+            'sertifikat' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
+                }
+        
+        try {
+            DB::beginTransaction();
+
+            $permohonan = Permohonan::find($id);
+
+            $fileNameSertifikat = $permohonan->foto_sertifikat;
+
+            if ($request->sertifikat) {
+                $directory = 'lampiran_permohonan/sertifikat';
+                $fileNameSertifikat = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->sertifikat->getClientOriginalName();
+                
+                $path = $request->sertifikat->storeAs(
+                    'public', $fileNameSertifikat
+                );
+            }
+
+            $permohonan->update([
+                'foto_sertifikat' => $fileNameSertifikat,
+                'no_sertifikat' => $request->no_sertifikat,
+                'status' => "terima",
+            ]);
+
+            DB::commit();
+
+            return redirect(route('permohonan_haki.index'))->with('success','Sertifikat Berhasil Di Upload !');
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()
+                    ->withErrors($th->getMessage())
+                    ->withInput();
+        }
     }
 }

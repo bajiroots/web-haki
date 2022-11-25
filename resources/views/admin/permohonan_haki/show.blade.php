@@ -1,5 +1,13 @@
 @extends('admin.include.index')
 
+@push('css')
+<style>
+    .disable{
+        pointer-events:none;
+    }
+</style>
+@endpush
+
 @section('content')
 <div class="page-content">
     <div class="page-info container">
@@ -46,7 +54,13 @@
                                 <h2 class="text-right" id="text-biaya"></h2>
                                 <h5 class="card-title">
                                     Permohonan
-                                    <button class="btn btn-success float-right">Sertifikat</button>
+                                    <a href=" @if($data->foto_sertifikat === null) #! @else {{ asset('storage/'.$data->foto_sertifikat) }} @endif" target="_blank" class="btn @if($data->foto_sertifikat === null) disabled btn-success @else btn-success bg-success text-light @endif float-right" @if($data->foto_sertifikat === null) disabled @endif> <i class="fa fa-download"></i> Download Sertifikat</a>
+
+                                    @if(Auth::user()->level == 'admin')
+                                    <button type="button" class="btn btn-primary float-right mb-2 mr-2" data-toggle="modal" data-target="#modalSertifikat">
+                                        <i class="fa fa-upload"></i> @if($data->foto_sertifikat === null) Upload Sertifikat @else Perbarui Sertifikat @endif
+                                    </button>
+                                    @endif
                                 </h5>
                                 <div class="form-group">
                                     <label>Nomor Aplikasi <span class="required" style="color: red">*</span> </label>
@@ -57,12 +71,12 @@
                                 <div class="form-group">
                                     <label>Nomor Sertifikat <span class="required" style="color: red">*</span> </label>
                                     <input type="text" name="judul" required 
-                                        @if($data->nomor_sertifikat === null)
+                                        @if($data->no_sertifikat === null)
                                         class="form-control mb-3 border-warning bg-warning text-light"
                                         value="{{ 'Sedang dalam Proses' }}"
                                         @else
-                                        class="form-control mb-3"
-                                        value="{{ $data->nomor_sertifikat }}"
+                                        class="form-control mb-3 bg-success text-light"
+                                        value="{{ $data->no_sertifikat }}"
                                         @endif
                                         readonly>
                                 </div>
@@ -271,6 +285,44 @@
 
 </div>
 </form>
+
+<!-- Modal -->
+<div class="modal fade " id="modalSertifikat" tabindex="-1" role="dialog" aria-labelledby="modalSertifikatLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content ">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalSertifikatLabel">Upload Sertifikat</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form method="POST" action="{{route('permohonan_haki.uploadSertifikat', $data->id)}}" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="no_sertifikat">No Sertifikat <span class="required" style="color: red">*</span></label>
+                    <input type="text" class="form-control" required name="no_sertifikat" placeholder="Masukkan No Sertifikat">
+                </div>
+                <div class="form-group">
+                    <label>Upload Sertifikat <span class="required" style="color: red">* <i style="text-size:11px;"></i> </span>
+                    </label>
+
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" required name="sertifikat" id="sertifikat" required>
+                        <label class="custom-file-label" id="label_sertifikat" for="sertifikat">Choose file</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
 @endsection
 
 @section('js')
@@ -281,6 +333,10 @@
     $(document).ready(function () {
 
         $('.money').mask('000.000.000', {reverse: true});
+        $("#sertifikat").change(function (e) { 
+            var filename = $(this).val().replace(/C:\\fakepath\\/i, '')
+            $("#label_sertifikat").html(filename)
+        });
 
     });
 
