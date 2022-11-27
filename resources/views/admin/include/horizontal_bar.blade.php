@@ -7,6 +7,7 @@
                 <div class="horizontal-bar-menu">
                     <ul>
                         <li><a href="{{ route('dashboard-admin') }}" class="{{ (request()->is('admin') ) ? 'active' : '' }}">Dashboard</a></li>
+                        @if(Auth::user()->level == 'admin')
                         <li>
                             <a href="#" class="{{ (request()->is('admin/jenis_permohonan*', 'admin/jenis_ciptaan*', 'admin/sub_jenis_ciptaan*') ) ? 'active' : '' }}">Master Data<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>
@@ -21,6 +22,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
                         <li>
                             <a href="#" class="{{ (request()->is('admin/permohonan_haki*') ) ? 'active' : '' }}">Hak Cipta<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>

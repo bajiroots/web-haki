@@ -44,6 +44,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-5">
+                        <div>
+                            <a href="{{ route('welcome') }}"><i class="fa fa-arrow-circle-left float-left"></i></a>
+                        </div>
                         <div class="auth-form">
                             <div class="row">
                                 <div class="col">
@@ -57,6 +60,7 @@
                                             <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-block btn-submit">Sign In</button>
+                                        <a class="btn btn-light btn-block btn-submit" href="{{ route('register') }}">Register</a>
                                     </form>
                                 </div>
                             </div>

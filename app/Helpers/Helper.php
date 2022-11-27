@@ -2,6 +2,7 @@
 namespace App\Helpers;
 
 use App\Models\Permohonan;
+use App\Models\Provinsi;
 
 class Helper {
 
@@ -13,6 +14,11 @@ class Helper {
     }
 
     return ++$kd;
+  }
+
+  public static function provinsi(){
+    $p = Provinsi::all();
+    return $p;
   }
 
 }

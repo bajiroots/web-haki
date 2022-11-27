@@ -25,6 +25,7 @@
         <link href=" {{ asset('assets_admin/css/admin2.css') }} " rel="stylesheet">
         <link href=" {{ asset('assets_admin/css/dark_theme.css') }} " rel="stylesheet">
         <link href=" {{ asset('assets_admin/css/custom.css') }} " rel="stylesheet">
+        <link href="{{ asset('assets_admin/plugins/select2/css/select2.min.css') }}" rel="stylesheet">  
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,6 +50,7 @@
                                 <div class="col">
                                     <div class="logo-box"><a href="#" class="logo-text">Register</a></div>
                                     <form action="{{ route('register') }}" method="POST">
+                                        @csrf
                                         <div class="form-group">
                                             <label>Email <span class="required" style="color: red">*</span> </label>
                                             <input type="email" class="form-control" name="email" placeholder="Enter email">
@@ -70,6 +72,14 @@
                                             <input type="date" class="form-control" name="tgl_lahir" placeholder="Tgl Lahir">
                                         </div>
                                         <div class="form-group">
+                                            <label>Jenis Kelamin <span class="required" style="color: red">*</span> </label>
+                                            <select class="form-control mb-3" name="jenis_Kelamin" required>
+                                                <option value=""> Pilih Jenis Kelamin </option>
+                                                <option value="laki-laki"> Laki Laki </option>
+                                                <option value="perempuan"> Perempuan </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Alamat <span class="required" style="color: red">*</span> </label>
                                             <textarea name="alamat" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
@@ -78,11 +88,18 @@
                                             <input type="number" class="form-control" name="kode_pos" placeholder="Kode POS">
                                         </div>
                                         <div class="form-group">
-                                            <label>Jenis Kelamin <span class="required" style="color: red">*</span> </label>
-                                            <select class="form-control mb-3" name="jenis_Kelamin" required>
-                                                <option value=""> Pilih Jenis Kelamin </option>
-                                                <option value="laki-laki"> Laki Laki </option>
-                                                <option value="perempuan"> Perempuan </option>
+                                            <div for="provinsi">Provinsi <span class="required" style="color: red;">*</span></div>
+                                            <select class="form-control mb-3 js-states pasti" name="provinsi">
+                                                <option value=""> Pilih Provinsi </option>
+                                                @foreach (\Helper::provinsi() as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nama_provinsi }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="kota">Kota <span class="required" style="color: red">*</span></label>
+                                            <select class="form-control mb-3" name="kota">
+                                                <option value=""> Pilih Provinsi Terlebih Dahulu </option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -114,5 +131,38 @@
         <script src=" {{ asset('assets_admin/plugins/bootstrap/js/bootstrap.min.js') }} "></script>
         <script src=" {{ asset('assets_admin/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }} "></script>
         <script src=" {{ asset('assets_admin/js/connect.min.js') }} "></script>
+        <script src="{{ asset('assets_admin/plugins/select2/js/select2.full.min.js') }}"></script>
+        <script src="{{ asset('assets_admin/js/pages/select2.js') }}"></script>
+
+        <script>
+            $(document).ready(function () {
+                const getKota = () =>{
+                let provinsiId = $("select[name=provinsi]").val();
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('api/kota') }}" + '/' + provinsiId ,
+                    success: function (res) {
+                        if (res.status == 'success') {
+                            let opt = '<option value="">Pilih Kota</option>'
+                            res.data.forEach(element => {
+                                opt += `
+                                <option value='${element.id}'>${element.nama_kota}</option>
+                                `
+                            });
+
+                            $("select[name=kota]").html(opt)
+                        }
+                    }, error: function(){
+                        let opt = '<option value="">Pilih Provinsi Terlebih Dahulu</option>'
+                        $("select[name=kota]").html(opt)
+                    }
+                });
+                }
+                    $("select[name=provinsi]").change(function (e) {
+                        getKota();
+                    });
+            });
+        </script>
+
     </body>
 </html>

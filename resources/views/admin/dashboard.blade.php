@@ -87,49 +87,27 @@
             <div class="col-lg-12">
                 <div class="card card-transactions">
                     <div class="card-body">
-                        <h5 class="card-title">Transactions<a href="#" class="card-title-helper blockui-transactions"><i
+                        <h5 class="card-title">Riwayat Pengajuan Hak Cipta<a href="#" class="card-title-helper blockui-transactions"><i
                                     class="material-icons">refresh</i></a></h5>
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Company</th>
-                                        <th scope="col">Amount</th>
+                                        <th scope="col">No Permohonan</th>
+                                        <th scope="col">Judul</th>
+                                        <th scope="col">Deskripsi</th>
                                         <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>0776</td>
-                                        <td>Sale Management</td>
-                                        <td>$18, 560</td>
-                                        <td><span class="badge badge-success">Finished</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>0759</td>
-                                        <td>Dropbox</td>
-                                        <td>$40, 672</td>
-                                        <td><span class="badge badge-warning">Waiting</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>0741</td>
-                                        <td>Social Media</td>
-                                        <td>$13, 378</td>
-                                        <td><span class="badge badge-info">In Progress</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>0740</td>
-                                        <td>Envato Market</td>
-                                        <td>$17, 456</td>
-                                        <td><span class="badge badge-info">In Progress</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>0735</td>
-                                        <td>Graphic Design</td>
-                                        <td>$29, 999</td>
-                                        <td><span class="badge badge-secondary">Canceled</span></td>
-                                    </tr>
+                                    @foreach ($datas as $item)
+                                        <tr>
+                                            <td>{{ $item->nomor_permohonan }}</td>
+                                            <td>{{ $item->judul_ciptaan }}</td>
+                                            <td>{{ $item->deskripsi }}</td>
+                                            <td>{{ $item->status }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -210,7 +188,10 @@
             "labels": ["Ditolak", "Diterima", "Diproses"],
             "datasets": [{
                 "label": "My First Dataset",
-                "data": [300, 50, 100],
+                "data": [
+                    {{ $count["tolak"] }}, 
+                    {{ $count["terima"] }}, 
+                    {{ $count["proses"] }}],
                 "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"]
             }]
         }

@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -51,8 +51,15 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'no_ktp' => ['required', 'string', 'max:255'],
+            'tgl_lahir' => ['required', 'string', 'max:255'],
+            'alamat' => ['required', 'string'],
+            'kode_pos' => ['required', 'string', 'max:255'],
+            'jenis_Kelamin' => ['required', 'string', 'max:255'],
+            'kota' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 
@@ -67,6 +74,13 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'username' => $data['username'],
+            'no_ktp' => $data['no_ktp'],
+            'tgl_lahir' => $data['tgl_lahir'],
+            'alamat' => $data['alamat'],
+            'kode_pos' => $data['kode_pos'],
+            'kota_id' => $data['kota'],
+            'jenis_kelamin' => $data['jenis_Kelamin'],
             'password' => Hash::make($data['password']),
         ]);
     }
