@@ -84,4 +84,22 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    public function checkEmail($email)
+    {
+        $data = User::where('email', $email)->get()->first();
+
+        if ($data === null ) {
+            return response()->json([
+                'status' => "success",
+                'data' => $data,
+            ]);
+        }else{
+            return response()->json([
+                'status' => "error",
+                'data' => $data,
+            ]);
+        }
+    }
+
 }

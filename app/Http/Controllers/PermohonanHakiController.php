@@ -173,7 +173,7 @@ class PermohonanHakiController extends Controller
             return redirect()->back()
                     ->withErrors($th->getMessage())
                     ->withInput()
-                    ->with('error', 'pesan error');
+                    ->with('error', $th);
         }
     }
 
