@@ -53,57 +53,57 @@
                         [
                             "judul" => "SURAT PERMOHONAN PERUBAHAN NAMA DAN ALAMAT HAK CIPTA",
                             "img" => "2. SURAT PERMOHONAN PERUBAHAN NAMA DAN ALAMAT HAK CIPTA.jpg",
-                            "link" => "#"
+                            "link" => "https://www.dgip.go.id/unduhan/download/2-surat-permohonan-perubahan-nama-dan-alamat-hak-cipta-44-2021"
                         ],
                         [
                             "judul" => "SURAT KETERANGAN UMK",
                             "img" => "3. Surat Keterangan UMK.jpg",
-                            "link" => "#"
+                            "link" => "https://www.dgip.go.id/unduhan/download/3-surat-keterangan-umk-44-2021"
                         ],
                         [
                             "judul" => "SURAT PERMOHONAN SALINAN HAK CIPTA",
                             "img" => "5. SURAT PERMOHONAN SALINAN HAK CIPTA.jpg",
-                            "link" => "#"
+                            "link" => "https://www.dgip.go.id/unduhan/download/1-surat-permohonan-pengalihan-hak-cipta-44-2021"
                         ],
                         [
                             "judul" => "SURAT PERMOHONAN KETERANGAN TERTULIS",
                             "img" => "6. SURAT PERMOHONAN KETERANGAN TERTULIS.jpg",
-                            "link" => ""
+                            "link" => "https://www.dgip.go.id/unduhan/download/6-surat-permohonan-keterangan-tertulis-44-2021"
                         ],
                         [
                             "judul" => "SURAT PERMOHONAN PERBAIKAN DATA",
                             "img" => "7. Surat Permohonan Perbaikan Data.jpg",
-                            "link" => "#"
+                            "link" => "https://www.dgip.go.id/unduhan/download/7-surat-permohonan-perbaikan-data-44-2021"
                         ],
                         [
                             "judul" => "SURAT PERMOHONAN KOREKSI SURAT PENCATATAN",
                             "img" => "8. Surat Permohonan Koreksi Surat Pencatatan.jpg",
-                            "link" => "#"
+                            "link" => "https://www.dgip.go.id/unduhan/download/8-surat-permohonan-koreksi-surat-pencatatan-44-2021"
                         ],
                         [
                             "judul" => "SURAT TANGGAPAN SURAT KEKURANGAN FORMALITAS",
                             "img" => "9. Surat Tanggapan Surat Kekurangan Formalitas.jpg",
-                            "link" => "#"
+                            "link" => "https://www.dgip.go.id/unduhan/download/9-surat-tanggapan-surat-kekurangan-formalitas-44-2021"
                         ],
                         [
                             "judul" => "SURAT PERMOHONAN PERTANYAAN STATUS",
                             "img" => "12. Surat Permohonan Pertanyaan Status.jpg",
-                            "link" => ""
+                            "link" => "https://www.dgip.go.id/unduhan/download/12-surat-permohonan-pertanyaan-status-44-2021"
                         ],
                         [
                             "judul" => "SURAT PERMOHONAN PERBAIKAN CIPTAAN",
                             "img" => "13. Surat Permohonan Perbaikan Ciptaan.jpg",
-                            "link" => "#"
+                            "link" => "https://www.dgip.go.id/unduhan/download/13-surat-permohonan-perbaikan-ciptaan-44-2021"
                         ],
                         [
                             "judul" => "SURAT PERMOHONAN PETIKAN",
                             "img" => "SURAT PERMOHONAN PETIKAN.jpg",
-                            "link" => "#"
+                            "link" => "https://www.dgip.go.id/unduhan/download/4-surat-permohonan-petikan-hak-cipta-44-2021"
                         ],
                         [
                             "judul" => "SURAT PERMOHONAN HAK CIPTA",
                             "img" => "surat permohonan hak cipta.jpg",
-                            "link" => "#"
+                            "link" => "https://www.dgip.go.id/unduhan/download/1-surat-permohonan-pengalihan-hak-cipta-44-2021"
                         ],
                     ]
                 ?>

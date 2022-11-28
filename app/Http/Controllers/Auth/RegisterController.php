@@ -92,12 +92,25 @@ class RegisterController extends Controller
         if ($data === null ) {
             return response()->json([
                 'status' => "success",
-                'data' => $data,
             ]);
         }else{
             return response()->json([
                 'status' => "error",
-                'data' => $data,
+            ]);
+        }
+    }
+
+    public function checkUsername($username)
+    {
+        $data = User::where('username', $username)->get()->first();
+
+        if ($data === null ) {
+            return response()->json([
+                'status' => "success",
+            ]);
+        }else{
+            return response()->json([
+                'status' => "error",
             ]);
         }
     }

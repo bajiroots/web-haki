@@ -63,6 +63,7 @@
                                                 <div class="form-group">
                                                     <label>Username <span class="required" style="color: red">*</span> </label>
                                                     <input id="username" type="text" class="form-control" name="username" placeholder="Username">
+                                                    <span id="cUsername"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -202,6 +203,21 @@
                                 $('#cEmail').html('Email belum terdaftar').css('color','green')
                             } else if(response.status == 'error'){
                                 $('#cEmail').html('Email telah terdaftar').css('color','red')
+                            }
+                        }
+                    });
+                });
+
+                $('#username').keyup(function (e) { 
+                    let username = $(this).val()
+                    $.ajax({
+                        type: "GET",
+                        url: "{{ url('api/username') }}" + '/' + username ,
+                        success: function (response) {
+                            if (response.status == 'success') {
+                                $('#cUsername').html('Username belum terdaftar').css('color','green')
+                            } else if(response.status == 'error'){
+                                $('#cUsername').html('Username telah terdaftar').css('color','red')
                             }
                         }
                     });
