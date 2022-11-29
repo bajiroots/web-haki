@@ -84,6 +84,18 @@
             </script>
         @endif
 
+        @if (session('error') !== null)
+            <script>
+                setTimeout(() => {
+                    Swal.fire(
+                    'Gagal',
+                    '{{ session("error") }}',
+                    'error'
+                )
+                }, 1500);
+            </script>
+        @endif
+
         {{-- datatables script --}}
         @stack('dataTable')
         

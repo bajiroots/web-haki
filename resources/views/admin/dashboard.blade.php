@@ -16,6 +16,13 @@
     </div>
 
     <div class="main-wrapper container">
+        <div class="row my-2">
+            <div class="col-md-12">
+                <h1>Selamat Datang di Aplikasi WEB HAKI, {{ Auth::user()->name }}</h1>
+            </div>
+        </div>
+
+        @if(Auth::user()->level == 'admin')
         <div class="row stats-row">
             <div class="col-lg-4 col-md-12">
                 <div class="card card-transparent stats-card">
@@ -82,6 +89,7 @@
                 </div>
             </div>
         </div>
+        @endif
 
         <div class="row">
             <div class="col-lg-12">
@@ -100,14 +108,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($datas as $item)
-                                        <tr>
-                                            <td>{{ $item->nomor_permohonan }}</td>
-                                            <td>{{ $item->judul_ciptaan }}</td>
-                                            <td>{{ $item->deskripsi }}</td>
-                                            <td>{{ $item->status }}</td>
+                                    @forelse ($datas as $item)
+                                    <tr>
+                                        <td>{{ $item->nomor_permohonan }}</td>
+                                        <td>{{ $item->judul_ciptaan }}</td>
+                                        <td>{{ $item->deskripsi }}</td>
+                                        <td>{{ $item->status }}</td>
+                                    </tr>
+                                        
+                                    @empty
+                                        <tr class="text-center">
+                                            <td colspan="4">Data Tidak Ditemukan</td>
                                         </tr>
-                                    @endforeach
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

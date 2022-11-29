@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\JenisPermohonan;
 
+use Illuminate\Support\Facades\Auth;
+
 class JenisPermohonanController extends Controller
 {
     /**
@@ -14,6 +16,10 @@ class JenisPermohonanController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
+
         $datas = JenisPermohonan::all();
 
         return view("admin.jenis_permohonan.index", compact('datas'));
@@ -26,6 +32,9 @@ class JenisPermohonanController extends Controller
      */
     public function create()
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         return view("admin.jenis_permohonan.create");
     }
 
@@ -37,6 +46,9 @@ class JenisPermohonanController extends Controller
      */
     public function store(Request $request)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         JenisPermohonan::create([
             'nama_jenis_permohonan' => $request->jenis_permohonan,
         ]);
@@ -63,6 +75,9 @@ class JenisPermohonanController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $data = JenisPermohonan::find($id);
 
         return view("admin.jenis_permohonan.edit", compact('data'));
@@ -78,6 +93,9 @@ class JenisPermohonanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $data = JenisPermohonan::find($id);
         $data->update([
             'nama_jenis_permohonan' => $request->jenis_permohonan,
@@ -94,6 +112,9 @@ class JenisPermohonanController extends Controller
      */
     public function destroy($id)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $data = JenisPermohonan::find($id);
         $data->delete();
 

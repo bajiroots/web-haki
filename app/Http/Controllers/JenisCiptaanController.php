@@ -7,6 +7,8 @@ use App\Models\JenisCiptaan;
 use App\Models\BiayaJenisCiptaan;
 use App\Models\JenisPermohonan;
 
+use Illuminate\Support\Facades\Auth;
+
 class JenisCiptaanController extends Controller
 {
     /**
@@ -17,6 +19,9 @@ class JenisCiptaanController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $datas = JenisCiptaan::all();
 
         return view("admin.jenis_ciptaan.index", compact('datas'));
@@ -29,6 +34,9 @@ class JenisCiptaanController extends Controller
      */
     public function create()
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $jenis_permohonan = JenisPermohonan::all();
         return view("admin.jenis_ciptaan.create", compact('jenis_permohonan'));
     }
@@ -41,6 +49,9 @@ class JenisCiptaanController extends Controller
      */
     public function store(Request $request)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $jenis_ciptaan = JenisCiptaan::create([
             'nama_jenis_ciptaan' => $request->jenis_ciptaan,
         ]);
@@ -75,6 +86,9 @@ class JenisCiptaanController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $jenis_permohonan = JenisPermohonan::all();
         $data = JenisCiptaan::find($id);
 
@@ -91,6 +105,9 @@ class JenisCiptaanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $jenis_ciptaan = JenisCiptaan::find($id);
         $jenis_ciptaan->update([
             'nama_jenis_ciptaan' => $request->jenis_ciptaan,
@@ -116,6 +133,9 @@ class JenisCiptaanController extends Controller
      */
     public function destroy($id)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $data = JenisCiptaan::find($id);
         $data->delete();
 

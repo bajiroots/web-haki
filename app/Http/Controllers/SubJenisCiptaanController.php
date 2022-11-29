@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\SubJenisCiptaan;
 use App\Models\JenisCiptaan;
 
+use Illuminate\Support\Facades\Auth;
+
 class SubJenisCiptaanController extends Controller
 {
     /**
@@ -15,6 +17,9 @@ class SubJenisCiptaanController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $datas = SubJenisCiptaan::all();
 
         return view("admin.sub_jenis_ciptaan.index", compact('datas'));
@@ -27,6 +32,9 @@ class SubJenisCiptaanController extends Controller
      */
     public function create()
     { 
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $dataCiptaans = JenisCiptaan::all();
 
         return view("admin.sub_jenis_ciptaan.create", compact('dataCiptaans'));
@@ -40,6 +48,9 @@ class SubJenisCiptaanController extends Controller
      */
     public function store(Request $request)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         SubJenisCiptaan::create([
             'jenis_ciptaan_id' => $request->jenis_ciptaan,
             'nama_sub_jenis_ciptaan' => $request->sub_jenis_ciptaan,
@@ -67,6 +78,9 @@ class SubJenisCiptaanController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $dataCiptaans = JenisCiptaan::all();
 
         $dataSubJenisCiptaans = SubJenisCiptaan::find($id);
@@ -83,6 +97,9 @@ class SubJenisCiptaanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $data = SubJenisCiptaan::find($id);
         $data->update([
             'jenis_ciptaan_id' => $request->jenis_ciptaan,
@@ -100,6 +117,9 @@ class SubJenisCiptaanController extends Controller
      */
     public function destroy($id)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $data = SubJenisCiptaan::find($id);
         $data->delete();
 

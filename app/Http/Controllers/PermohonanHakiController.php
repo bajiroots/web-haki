@@ -27,8 +27,11 @@ class PermohonanHakiController extends Controller
      */
     public function index()
     {
-        $datas = Permohonan::all();
-        
+        if(Auth::user()->level == 'admin'){
+            $datas = Permohonan::all();
+        }else{
+            $datas = Permohonan::where('user_id', Auth::user()->id)->get();
+        }
 
         return view("admin.permohonan_haki.index", compact('datas'));
     }
@@ -72,18 +75,18 @@ class PermohonanHakiController extends Controller
             'ktp' => 'required|mimes:pdf',
             'surat_pernyataan' => 'required|mimes:pdf',
             'contoh_ciptaan' => 'required',
-            'bukti_bayar' => 'required|mimes:jpeg,png,jpg,gif,svg',
+            'bukti_bayar' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
-                    ->withErrors($validator)
-                    ->withInput();
+            ->with('error', $validator->errors())
+            ->withInput();
         }
         
         try {
             DB::beginTransaction();
-
+            
             $fileNameBuktiBayar = null;
             $fileNameKtp = null;
             $fileNameSuratPernyataan = null;
@@ -125,7 +128,7 @@ class PermohonanHakiController extends Controller
                     'public', $fileNameContohCiptaan
                 );
             }
-
+            
             if ($request->bukti_pengalihan) {
                 $directory = 'lampiran_permohonan/bukti_pengalihan';
                 $fileNameBuktiPengalihan = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->bukti_pengalihan->getClientOriginalName();
@@ -134,7 +137,7 @@ class PermohonanHakiController extends Controller
                     'public', $fileNameBuktiPengalihan
                 );
             }
-
+            
             $permohonan = Permohonan::create([
                 'user_id' => Auth::user()->id,
                 'jenis_permohonan_id' => $request->jenis_permohonan,
@@ -151,7 +154,7 @@ class PermohonanHakiController extends Controller
                 'bukti_pengalihan_hak_cipta' => $fileNameBuktiPengalihan,
                 'contoh_ciptaan_link' => $request->contoh_ciptaan_link ?? null,
             ]);
-
+            
             for ($i=0; $i < count($request->namaPencipta); $i++) { 
                 Pencipta::create([
                     'permohonan_id' => $permohonan->id,
@@ -163,17 +166,16 @@ class PermohonanHakiController extends Controller
                     'kode_pos' => $request->kodePosPencipta[$i],
                 ]);
             }
-
+            
             DB::commit();
 
             return redirect(route('permohonan_haki.index'))->with('success','Pemohonan Hak Cipta Anda Berhasil Dikirim !');
 
         } catch (\Throwable $th) {
             DB::rollBack();
+            dd(0);
             return redirect()->back()
-                    ->withErrors($th->getMessage())
-                    ->withInput()
-                    ->with('error', $th);
+                    ->with('error', $th->getMessage());
         }
     }
 
@@ -395,6 +397,9 @@ class PermohonanHakiController extends Controller
 
     public function uploadSertifikat(Request $request, $id)
     {
+        if(Auth::user()->level != 'admin'){
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Hak Akses Ke Menu Ini');
+        }
         $validator = Validator::make($request->all(), [
             'no_sertifikat' => 'required',
             'sertifikat' => 'required',
