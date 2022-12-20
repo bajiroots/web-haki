@@ -13,12 +13,17 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
 
-        // dd($request->tahun);
+        if ($request->tahun != null) {
+            $tahunIni = $request->tahun;
+        }else{
+            $tahunIni = date('Y');
+        }
 
         $all = Permohonan::all();
-        $countProses = Permohonan::where('status','proses')->count();
-        $countTerima = Permohonan::where('status','terima')->count();
-        $countTolak = Permohonan::where('status','tolak')->count();
+        
+        $countProses = Permohonan::where('status','proses')->whereYear('created_at', $tahunIni)->count();
+        $countTerima = Permohonan::where('status','terima')->whereYear('created_at', $tahunIni)->count();
+        $countTolak = Permohonan::where('status','tolak')->whereYear('created_at', $tahunIni)->count();
         $count = [
             'tolak' => $countTolak,
             'terima' => $countTerima,
@@ -27,12 +32,6 @@ class DashboardController extends Controller
 
         //menghitung pendapatan tahunan
         $pendapatanTahun = 0;
-
-        if ($request->tahun != null) {
-            $tahunIni = $request->tahun;
-        }else{
-            $tahunIni = date('Y');
-        }
 
         $tahunSebelumnya = $tahunIni - 1;
         $PermohonanTahunIni = Permohonan::whereYear('created_at', $tahunIni)->where('status','terima')->get();
