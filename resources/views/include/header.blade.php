@@ -15,6 +15,7 @@
                 <li><a href="{{ route('welcome') }}" class="active">Beranda</a></li>
                 <!-- <li><a href="about.html">Tentang</a></li> -->
                 <li><a href="services.html">Permohonan</a></li>
+                <li><a href="{{ route('penelusuran') }}">Penelusuran</a></li>
                 <li><a href="{{ route('unduhan') }}">Unduhan</a></li>
                 <li class="dropdown"><a href="#"><span>Tentang</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
