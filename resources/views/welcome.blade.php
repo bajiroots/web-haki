@@ -10,9 +10,9 @@
                 <h2 data-aos="fade-up">Website#1 untuk Mendaftarkan Hak Kekayaan Intelektual</h2>
                 <!-- <p data-aos="fade-up" data-aos-delay="100">Facere distinctio molestiae nisi fugit tenetur repellat non praesentium nesciunt optio quis sit odio nemo quisquam. eius quos reiciendis eum vel eum voluptatem eum maiores eaque id optio ullam occaecati odio est possimus vel reprehenderit</p> -->
 
-                <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
+                <form action="{{ route('search') }}" method="GET" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
                     data-aos-delay="200">
-                    <input type="text" class="form-control" placeholder="Telusuri Hak Cipta">
+                    <input type="text" class="form-control" name="keyword" placeholder="Telusuri Hak Cipta">
                     <button type="submit" class="btn btn-primary">Cari</button>
                 </form>
 
@@ -20,7 +20,7 @@
 
                     <div class="col-lg-3 col-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $jmlhUser }}" data-purecounter-duration="1"
                                 class="purecounter"></span>
                             <p>User</p>
                         </div>
@@ -28,7 +28,7 @@
 
                     <div class="col-lg-3 col-6">
                         <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $jmlhPermohonan }}" data-purecounter-duration="1"
                                 class="purecounter"></span>
                             <p>Hak Cipta</p>
                         </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisPermohonanController;
 use App\Http\Controllers\JenisCiptaanController;
 use App\Http\Controllers\SubJenisCiptaanController;
@@ -29,17 +30,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::POST('permohonan_haki/upload-sertifikat/{id}', [PermohonanHakiController::class, 'uploadSertifikat'])->name('permohonan_haki.uploadSertifikat');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
-Route::get('/unduhan', function () {
-    return view('unduhan');
-})->name('unduhan');
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/unduhan', [HomeController::class, 'unduhan'])->name('unduhan');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 Route::get('/penelusuran', [App\Http\Controllers\PenelusuranController::class, 'index'])->name('penelusuran');
 
