@@ -17,6 +17,7 @@ class CreateJenisCiptaansTable extends Migration
             $table->id();
             $table->string('nama_jenis_ciptaan');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
