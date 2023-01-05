@@ -55,31 +55,31 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Email <span class="required" style="color: red">*</span> </label>
-                                                    <input id="email" type="email" class="form-control" name="email" placeholder="Enter email">
+                                                    <input id="email" type="email" class="form-control" name="email" required placeholder="Enter email">
                                                     <span id="cEmail"></span>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Username <span class="required" style="color: red">*</span> </label>
-                                                    <input id="username" type="text" class="form-control" name="username" placeholder="Username">
+                                                    <input id="username" type="text" class="form-control" name="username" required placeholder="Username">
                                                     <span id="cUsername"></span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Lengkap <span class="required" style="color: red">*</span> </label>
-                                            <input type="text" class="form-control" name="name" placeholder="Nama Lengkap">
+                                            <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required>
                                         </div>
                                         <div class="form-group">
                                             <label>No KTP <span class="required" style="color: red">*</span> </label>
-                                            <input type="number" class="form-control" name="no_ktp" placeholder="No KTP">
+                                            <input type="number" class="form-control" name="no_ktp" placeholder="No KTP" required>
                                         </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Tgl Lahir <span class="required" style="color: red">*</span> </label>
-                                                    <input type="date" class="form-control" name="tgl_lahir" placeholder="Tgl Lahir">
+                                                    <input type="date" class="form-control" name="tgl_lahir" placeholder="Tgl required Lahir">
                                                 </div>
                                             </div>
                                             <div class="col">
@@ -95,15 +95,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Alamat <span class="required" style="color: red">*</span> </label>
-                                            <textarea name="alamat" class="form-control" cols="30" rows="10"></textarea>
+                                            <textarea name="alamat" class="form-control" cols="30" rows="10"></textarea required>
                                         </div>
                                         <div class="form-group">
                                             <label>Kode POS <span class="required" style="color: red">*</span> </label>
-                                            <input type="number" class="form-control" name="kode_pos" placeholder="Kode POS">
+                                            <input type="number" class="form-control" name="kode_pos" placeholder="Kode POS" required>
                                         </div>
                                         <div class="form-group">
                                             <div for="provinsi">Provinsi <span class="required" style="color: red;">*</span></div>
-                                            <select class="form-control mb-3 js-states pasti" name="provinsi">
+                                            <select class="form-control mb-3 js-states pasti" name="provinsi" required>
                                                 <option value=""> Pilih Provinsi </option>
                                                 @foreach (\Helper::provinsi() as $item)
                                                     <option value="{{ $item->id }}">{{ $item->nama_provinsi }}</option>
@@ -112,7 +112,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="kota">Kota <span class="required" style="color: red">*</span></label>
-                                            <select class="form-control mb-3" name="kota">
+                                            <select class="form-control mb-3" name="kota" required>
                                                 <option value=""> Pilih Provinsi Terlebih Dahulu </option>
                                             </select>
                                         </div>
@@ -121,13 +121,13 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Password <span class="required" style="color: red">*</span> </label>
-                                                    <input id="password" type="password" class="form-control" name="password" minlength="8">
+                                                    <input id="password" type="password" class="form-control" name="password" required minlength="8">
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Confirm Password <span class="required" style="color: red">*</span> </label>
-                                                    <input id="cpassword" type="password" class="form-control" name="cpassword" minlength="8">
+                                                    <input id="cpassword" type="password" class="form-control" name="cpassword" minlength="8" required>
                                                     
                                                 </div>
                                             </div>

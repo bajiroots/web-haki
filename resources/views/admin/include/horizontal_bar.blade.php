@@ -20,6 +20,9 @@
                                 <li>
                                     <a href="{{route('sub_jenis_ciptaan.index')}}" class="{{ (request()->is('admin/sub_jenis_ciptaan*') ) ? 'active' : '' }}">Sub Jenis Ciptaan</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('user.index')}}" class="{{ (request()->is('admin/user*') ) ? 'active' : '' }}">User</a>
+                                </li>
                             </ul>
                         </li>
                         @endif
