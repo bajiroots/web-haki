@@ -338,11 +338,7 @@
                 let kotaText = $('select[name=kota]').find(":selected").text();
 
                 if(!namaPencipta || !emailPencipta || !noTelpPencipta || !alamatPencipta || !kodePosPencipta || !provinsiId || !kotaId){
-                    // alert('Mohon untuk melengkapi field yang ada sebelum disimpan!')
-                    if()
-                    {
-
-                    }
+                    alert('Mohon untuk melengkapi field yang ada sebelum disimpan!')
                 }else{
                     let tablePencipta = `
                         <tr id="tbl-${idRow}">

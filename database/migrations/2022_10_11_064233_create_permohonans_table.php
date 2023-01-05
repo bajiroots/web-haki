@@ -16,7 +16,7 @@ class CreatePermohonansTable extends Migration
         Schema::create('permohonans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('admin_id')->constrained('users');
+            $table->foreignId('admin_id')->nullable()->constrained('users');
             $table->foreignId('jenis_permohonan_id')->constrained();
             $table->foreignId('sub_jenis_ciptaan_id')->constrained();
             $table->string('nomor_permohonan');
