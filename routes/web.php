@@ -6,6 +6,7 @@ use App\Http\Controllers\JenisPermohonanController;
 use App\Http\Controllers\JenisCiptaanController;
 use App\Http\Controllers\SubJenisCiptaanController;
 use App\Http\Controllers\PermohonanHakiController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LaporanPermohonanController;
 use App\Http\Controllers\LaporanJenisPermohonanController;
@@ -21,6 +22,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::resource('permohonan_haki', PermohonanHakiController::class);
     Route::put('permohonan_haki_tolak/{id}', [App\Http\Controllers\PermohonanHakiController::class, 'tolakPermohonan'])->name('tolakPermohonan');
     Route::POST('permohonan_haki/upload-sertifikat/{id}', [PermohonanHakiController::class, 'uploadSertifikat'])->name('permohonan_haki.uploadSertifikat');
+    Route::get('/profil/{id}', [ProfilController::class, 'edit'])->name('profil.edit');
+    Route::PUT('/profil/{id}', [ProfilController::class, 'update'])->name('profile.update');
     Route::resource('laporan_permohonan', LaporanPermohonanController::class);
     Route::resource('laporan_jenis_permohonan', LaporanJenisPermohonanController::class);
     Route::get('/downloadpdf', [LaporanPermohonanController::class, 'downloadpdf']);

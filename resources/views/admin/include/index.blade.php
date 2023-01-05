@@ -23,7 +23,7 @@
         {{-- datatables styles --}}
         @stack('css')
         @stack('dataTableStyles')
-
+    
         <!-- Theme Styles -->
         <link href="{{ asset('assets_admin/css/connect.min.css') }}" rel="stylesheet">
         <link href="{{ asset('assets_admin/css/admin2.css') }}" rel="stylesheet">
