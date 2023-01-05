@@ -19,6 +19,7 @@ class CreateBiayaJenisCiptaansTable extends Migration
             $table->foreignId('jenis_permohonan_id')->constrained();
             $table->string('biaya');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

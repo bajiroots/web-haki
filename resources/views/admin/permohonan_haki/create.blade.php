@@ -92,7 +92,7 @@
                         <h5 class="card-title float-left">Data Pencipta <span class="required"
                                 style="color: red">*</span> </h5>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary float-right mb-2" data-toggle="modal" data-target="#modalPencipta">
+                        <button type="button" id="btnModal" class="btn btn-primary float-right mb-2" data-toggle="modal" data-target="#modalPencipta">
                             Tambah
                         </button>
                         <table id="" class="table table-responsive-sm mt-5">
@@ -239,7 +239,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="button" id="tambah-pencipta" class="btn btn-primary">Simpan</button>
+                    <button type="button" id="tambah-pencipta" class="btn btn-primary" data-dismiss="modal">Simpan</button>
+                    <button type="button" id="edit-pencipta" class="btn btn-primary" data-dismiss="modal">Simpan</button>
                 </div>
             </div>
         </div>
@@ -257,7 +258,9 @@
 
     <script>
         $(document).ready(function () {
-            
+            let idRow = 0;
+            $('#edit-pencipta').hide();
+
             const money = (x) => {
                 return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
@@ -288,7 +291,7 @@
                 });
             }
 
-            const getKota = () =>{
+            const getKota = (idKota = null) =>{
                 let provinsiId = $("select[name=provinsi]").val();
                 $.ajax({
                     type: "GET",
@@ -298,7 +301,7 @@
                             let opt = '<option value="">Pilih Kota</option>'
                             res.data.forEach(element => {
                                 opt += `
-                                <option value='${element.id}'>${element.nama_kota}</option>
+                                <option value='${element.id}' ${idKota == element.id ? 'selected' : ''} >${element.nama_kota}</option>
                                 `
                             });
 
@@ -311,6 +314,17 @@
                 });
             }
 
+            $('#btnModal').click(function (e) { 
+                $('#namaPencipta').val('');
+                $('#emailPencipta').val('');
+                $('#noTelpPencipta').val('');
+                $('#alamatPencipta').val('');
+                $('#kodePosPencipta').val('');
+                $('select[name=provinsi]').val("").trigger("change");
+                $('select[name=kota]').empty();
+            });
+
+            let tmpEditId = 0;
             $('#tambah-pencipta').click(function (e) { 
                 let namaPencipta = $('#namaPencipta').val();
                 let emailPencipta = $('#emailPencipta').val();
@@ -324,10 +338,14 @@
                 let kotaText = $('select[name=kota]').find(":selected").text();
 
                 if(!namaPencipta || !emailPencipta || !noTelpPencipta || !alamatPencipta || !kodePosPencipta || !provinsiId || !kotaId){
-                    alert('Mohon untuk melengkapi field yang ada sebelum disimpan!')
+                    // alert('Mohon untuk melengkapi field yang ada sebelum disimpan!')
+                    if()
+                    {
+
+                    }
                 }else{
                     let tablePencipta = `
-                        <tr>
+                        <tr id="tbl-${idRow}">
                             <td>
                                 ${namaPencipta}
                             </td>
@@ -346,19 +364,25 @@
                             <td>
                                 ${emailPencipta} / ${noTelpPencipta}</td>
                             <td class="text-center">
+                                <input type"hidden" style="display: none !important;" class="idDelete" value="${idRow}">${idRow}
+                                <a href="javascript:void(0)" id="btn-edit-pencipta"  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalPencipta" >Edit</a>
                                 <a href="javascript:void(0)" id="btn-delete-pencipta"  class="btn btn-danger btn-sm">DELETE</a>
                             </td>
                         </tr>
                     `;
                     
+
                     let penciptaArr = `
-                        <input type"hidden" style="display: none !important;" value="${namaPencipta}" name="namaPencipta[]">
-                        <input type"hidden" style="display: none !important;" value="${alamatPencipta}" name="alamatPencipta[]">
-                        <input type"hidden" style="display: none !important;" value="${kodePosPencipta}" name="kodePosPencipta[]">
-                        <input type"hidden" style="display: none !important;" value="${kotaId}" name="kotaPencipta[]">
-                        <input type"hidden" style="display: none !important;" value="${emailPencipta}" name="emailPencipta[]">
-                        <input type"hidden" style="display: none !important;" value="${noTelpPencipta}" name="noTelpPencipta[]">
-                    `
+                    <div id="${idRow}">
+                        <input type"hidden" style="display: none !important;" value="${namaPencipta}" name="namaPencipta[]" class="namaPencipta">
+                        <input type"hidden" style="display: none !important;" value="${alamatPencipta}" name="alamatPencipta[]" class="alamatPencipta">
+                        <input type"hidden" style="display: none !important;" value="${kodePosPencipta}" name="kodePosPencipta[]" class="kodePosPencipta">
+                        <input type"hidden" style="display: none !important;" value="${kotaId}" name="kotaPencipta[]" class="kotaPencipta">
+                        <input type"hidden" style="display: none !important;" value="${emailPencipta}" name="emailPencipta[]" class="emailPencipta">
+                        <input type"hidden" style="display: none !important;" value="${noTelpPencipta}" name="noTelpPencipta[]" class="noTelpPencipta">
+                        <input type"hidden" style="display: none !important;" value="${provinsiId}" name="provinsiId[]" class="provinsiId">
+                    </div>
+                        `
                     $('#pencipta-wrapper').append(penciptaArr)
                     $('#wrapper').append(tablePencipta)
     
@@ -372,6 +396,7 @@
     
                     //close modal
                     $('#modalPencipta').modal('hide');
+                    idRow = idRow + 1;
                 }
                 
 
@@ -396,33 +421,149 @@
 
             $("#ktp").change(function (e) { 
                 var filename = $(this).val().replace(/C:\\fakepath\\/i, '')
+                if (filename.length > 60) {
+                    filename = filename.substring(0, 60) + ' . . .';
+                }
                 $("#label_ktp").html(filename)
             });
             $("#contoh_ciptaan").change(function (e) { 
                 var filename = $(this).val().replace(/C:\\fakepath\\/i, '')
+                if (filename.length > 60) {
+                    filename = filename.substring(0, 60) + ' . . .';
+                }
                 $("#label_contoh_ciptaan").html(filename)
             });
             $("#bukti_bayar").change(function (e) { 
                 var filename = $(this).val().replace(/C:\\fakepath\\/i, '')
+                if (filename.length > 160) {
+                    filename = filename.substring(0, 160) + ' . . .';
+                }
                 $("#label_bukti_bayar").html(filename)
             });
             $("#surat_pernyataan").change(function (e) { 
                 var filename = $(this).val().replace(/C:\\fakepath\\/i, '')
+                if (filename.length > 60) {
+                    filename = filename.substring(0, 60) + ' . . .';
+                }
                 $("#label_surat_pernyataan").html(filename)
             });
             $("#bukti_pengalihan").change(function (e) { 
                 var filename = $(this).val().replace(/C:\\fakepath\\/i, '')
+                if (filename.length > 60) {
+                    filename = filename.substring(0, 60) + ' . . .';
+                }
                 $("#label_bukti_pengalihan").html(filename)
             });
 
             $.each($(".select2-container"), function (i, v) { 
-                 $(v).attr("style", "width:100%;")
+                $(v).attr("style", "width:100%;")
             });
 
             $(document).on('click', '#btn-delete-pencipta', function () {
                 $(this).parents('tr').remove();
+                let rowD = $(this).siblings('.idDelete').val();
+                $('#'+rowD).remove();
             });
 
-        });
+            // ketika tombol edit diclick
+            $(document).on('click', '#btn-edit-pencipta', function () {
+                let row = $(this).siblings('.idDelete').val();
+                tmpEditId = row;
+                $('#edit-pencipta').show();
+                $('#tambah-pencipta').hide();
+
+                // ambil value inputan yg akan di edit
+                let namaPencipta = $('#'+row).children('.namaPencipta').val();
+                let alamatPencipta = $('#'+row).children('.alamatPencipta').val();
+                let kodePosPencipta = $('#'+row).children('.kodePosPencipta').val();
+                let kotaPencipta = $('#'+row).children('.kotaPencipta').val();
+                let emailPencipta = $('#'+row).children('.emailPencipta').val();
+                let noTelpPencipta = $('#'+row).children('.noTelpPencipta').val();
+                let provinsiId = $('#'+row).children('.provinsiId').val();
+                
+                // tampilkan value inputan yg akan di edit
+                $('#namaPencipta').val(namaPencipta);
+                $('#emailPencipta').val(emailPencipta);
+                $('#noTelpPencipta').val(noTelpPencipta);
+                $('#alamatPencipta').val(alamatPencipta);
+                $('#kodePosPencipta').val(kodePosPencipta);
+                $('select[name=provinsi]').val(provinsiId).trigger("change");
+                getKota(kotaPencipta);
+
+            });
+
+            // simpan data yang diedit
+            $(document).on('click', '#edit-pencipta', function () {
+                // ambil value inputan yg telah di edit
+                let namaPencipta = $('#namaPencipta').val();
+                let emailPencipta = $('#emailPencipta').val();
+                let noTelpPencipta = $('#noTelpPencipta').val();
+                let alamatPencipta = $('#alamatPencipta').val();
+                let kodePosPencipta = $('#kodePosPencipta').val();
+                let provinsiId = $('select[name=provinsi]').val();
+                let provinsiText = $('select[name=provinsi]').find(":selected").text();
+                
+                let kotaId = $('select[name=kota]').val();
+                let kotaText = $('select[name=kota]').find(":selected").text();
+
+                //cek apakah form telah diisi semua
+                if(!namaPencipta || !emailPencipta || !noTelpPencipta || !alamatPencipta || !kodePosPencipta || !provinsiId || !kotaId){
+                    alert('Mohon untuk melengkapi field yang ada sebelum disimpan!')
+                }else{
+                    let tablePencipta = `
+                            <td>
+                                ${namaPencipta}
+                            </td>
+                            <td>
+                                ${alamatPencipta}
+                            </td>
+                            <td>
+                                ${kodePosPencipta}
+                            </td>
+                            <td>
+                                ${provinsiText}
+                            </td>
+                            <td>
+                                ${kotaText}
+                            </td>
+                            <td>
+                                ${emailPencipta} / ${noTelpPencipta}</td>
+                            <td class="text-center">
+                                <input type"hidden" style="display: none !important;" class="idDelete" value="${tmpEditId}">${tmpEditId}
+                                <a href="javascript:void(0)" id="btn-edit-pencipta"  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalPencipta" >Edit</a>
+                                <a href="javascript:void(0)" id="btn-delete-pencipta"  class="btn btn-danger btn-sm">DELETE</a>
+                            </td>
+                    `;
+                    
+
+                    let penciptaArr = `
+                        <input type"hidden" style="display: none !important;" value="${namaPencipta}" name="namaPencipta[]" class="namaPencipta">
+                        <input type"hidden" style="display: none !important;" value="${alamatPencipta}" name="alamatPencipta[]" class="alamatPencipta">
+                        <input type"hidden" style="display: none !important;" value="${kodePosPencipta}" name="kodePosPencipta[]" class="kodePosPencipta">
+                        <input type"hidden" style="display: none !important;" value="${kotaId}" name="kotaPencipta[]" class="kotaPencipta">
+                        <input type"hidden" style="display: none !important;" value="${emailPencipta}" name="emailPencipta[]" class="emailPencipta">
+                        <input type"hidden" style="display: none !important;" value="${noTelpPencipta}" name="noTelpPencipta[]" class="noTelpPencipta">
+                        <input type"hidden" style="display: none !important;" value="${provinsiId}" name="provinsiId[]" class="provinsiId">
+                        `
+
+                    $('#'+tmpEditId).empty()
+                    $('#'+tmpEditId).append(penciptaArr)
+
+                    $('#tbl-'+tmpEditId).empty()
+                    $('#tbl-'+tmpEditId).append(tablePencipta)
+    
+                    $('#namaPencipta').val('');
+                    $('#emailPencipta').val('');
+                    $('#noTelpPencipta').val('');
+                    $('#alamatPencipta').val('');
+                    $('#kodePosPencipta').val('');
+                    $('select[name=provinsi]').val("");
+                    $('select[name=kota]').empty();
+
+                    $('#edit-pencipta').hide();
+                    $('#tambah-pencipta').show();
+                }
+            });
+        }); 
     </script>
 @endsection

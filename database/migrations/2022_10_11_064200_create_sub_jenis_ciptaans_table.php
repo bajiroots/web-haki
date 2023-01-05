@@ -18,6 +18,7 @@ class CreateSubJenisCiptaansTable extends Migration
             $table->foreignId('jenis_ciptaan_id')->constrained();
             $table->string('nama_sub_jenis_ciptaan');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

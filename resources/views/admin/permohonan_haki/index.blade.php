@@ -7,8 +7,8 @@
             <div class="col">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Master Data</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Jenis Ciptaan</li>
+                        <li class="breadcrumb-item"><a href="#">Hak Cipta</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Daftar Ciptaan</li>
                     </ol>
                 </nav>
             </div>

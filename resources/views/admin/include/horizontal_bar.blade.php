@@ -20,6 +20,9 @@
                                 <li>
                                     <a href="{{route('sub_jenis_ciptaan.index')}}" class="{{ (request()->is('admin/sub_jenis_ciptaan*') ) ? 'active' : '' }}">Sub Jenis Ciptaan</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('user.index')}}" class="{{ (request()->is('admin/user*') ) ? 'active' : '' }}">User</a>
+                                </li>
                             </ul>
                         </li>
                         @endif
@@ -31,6 +34,17 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('permohonan_haki.index') }}" class="{{ (request()->is('admin/permohonan_haki', 'permohonan_haki/edit*', 'permohonan_haki/show*') ) ? 'active' : '' }}">Daftar Ciptaan</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="{{ (request()->is('admin/laporan_permohonan*', 'admin/laporan_jenis_permohonan*') ) ? 'active' : '' }}">Laporan<i class="material-icons">keyboard_arrow_down</i></a>
+                            <ul>
+                                <li>
+                                    <a href="{{route('laporan_permohonan.index')}}" class="{{ (request()->is('admin/laporan_permohonan*') ) ? 'active' : '' }}">Laporan Permohonan</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('laporan_jenis_permohonan.index')}}" class="{{ (request()->is('admin/laporan_permohonan*') ) ? 'active' : '' }}">Laporan Jenis Permohonan</a>
                                 </li>
                             </ul>
                         </li>

@@ -16,6 +16,7 @@ class CreatePermohonansTable extends Migration
         Schema::create('permohonans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('admin_id')->constrained();
             $table->foreignId('jenis_permohonan_id')->constrained();
             $table->foreignId('sub_jenis_ciptaan_id')->constrained();
             $table->string('nomor_permohonan');
@@ -33,6 +34,7 @@ class CreatePermohonansTable extends Migration
             $table->string('foto_sertifikat')->nullable();
             $table->string('contoh_ciptaan_link')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
