@@ -14,10 +14,13 @@
                     <span>{{ auth()->user()->name }}</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="" onclick="event.preventDefault();document.getElementById('logout-form').submit()" >Log out</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>
+                <a class="dropdown-item" href="{{route('profil.edit', Auth::user()->id )}}" class="{{ (request()->is('admin/profile*') ) ? 'active' : '' }}">Profile</a>
+                <a class="dropdown-item" href="" onclick="event.preventDefault();document.getElementById('logout-form').submit()" >Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>               
                 </div>
+                
             </li>
+            
         </ul>
     </nav>
 </div>

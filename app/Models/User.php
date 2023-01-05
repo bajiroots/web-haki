@@ -35,4 +35,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Kota(){
+        return $this->belongsTo(Kota::class);
+    }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\JenisPermohonanController;
 use App\Http\Controllers\JenisCiptaanController;
 use App\Http\Controllers\SubJenisCiptaanController;
 use App\Http\Controllers\PermohonanHakiController;
+use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,6 +27,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::resource('sub_jenis_ciptaan', SubJenisCiptaanController::class);
     Route::resource('permohonan_haki', PermohonanHakiController::class);
     Route::POST('permohonan_haki/upload-sertifikat/{id}', [PermohonanHakiController::class, 'uploadSertifikat'])->name('permohonan_haki.uploadSertifikat');
+    Route::get('/profil/{id}', [ProfilController::class, 'edit'])->name('profil.edit');
+    Route::PUT('/profil/{id}', [ProfilController::class, 'update'])->name('profile.update');
 });
 
 Route::get('/', function () {
