@@ -173,7 +173,6 @@ class PermohonanHakiController extends Controller
 
         } catch (\Throwable $th) {
             DB::rollBack();
-            dd(0);
             return redirect()->back()
                     ->with('error', $th->getMessage());
         }
@@ -194,9 +193,6 @@ class PermohonanHakiController extends Controller
         $jenisCiptaan = JenisCiptaan::all();
         $subJenisCiptaan = SubJenisCiptaan::where('jenis_ciptaan_id', $data->subJenisCiptaan->jenis_ciptaan_id)->get();
         $provinsis = Provinsi::all();
-
-        // dd($data->SubJenisCiptaan->jenisCiptaan);
-        // dd($data->SubJenisCiptaan->jenisCiptaan->biayaJenisCiptaan->where('jenis_permohonan_id', $data->jenisPermohonan->id)->first()->biaya);
         
         return view("admin.permohonan_haki.show", compact("data", "jenisCiptaan", "jenisPermohonan", "provinsis", "subJenisCiptaan"));
         
@@ -366,7 +362,7 @@ class PermohonanHakiController extends Controller
         $data->pencipta()->delete();
         $data->delete();
 
-        return redirect(route('permohonan_haki.index'));
+        return redirect(route('permohonan_haki.index'))->with('success','Permohonan Berhasil Dihapus');
     }
 
     public function getSubJenisCiptaan($jenis_permohonan_id, $jenis_ciptaan_id)
@@ -430,6 +426,7 @@ class PermohonanHakiController extends Controller
             $permohonan->update([
                 'foto_sertifikat' => $fileNameSertifikat,
                 'no_sertifikat' => $request->no_sertifikat,
+                'admin_id' => Auth::user()->id,
                 'status' => "terima",
             ]);
 
@@ -443,5 +440,15 @@ class PermohonanHakiController extends Controller
                     ->withErrors($th->getMessage())
                     ->withInput();
         }
+    }
+
+    public function tolakPermohonan($id)
+    {
+        $data = Permohonan::find($id);
+        $data->update([
+            'status' => 'tolak'
+        ]);
+
+        return redirect(route('permohonan_haki.index'))->with('success','Permohonan Berhasil Ditolak !');
     }
 }
