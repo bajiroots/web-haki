@@ -34,6 +34,17 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#" class="{{ (request()->is('admin/laporan_permohonan*', 'admin/laporan_jenis_permohonan*') ) ? 'active' : '' }}">Laporan<i class="material-icons">keyboard_arrow_down</i></a>
+                            <ul>
+                                <li>
+                                    <a href="{{route('laporan_permohonan.index')}}" class="{{ (request()->is('admin/laporan_permohonan*') ) ? 'active' : '' }}">Laporan Permohonan</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('laporan_jenis_permohonan.index')}}" class="{{ (request()->is('admin/laporan_permohonan*') ) ? 'active' : '' }}">Laporan Jenis Permohonan</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

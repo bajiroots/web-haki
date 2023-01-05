@@ -5,6 +5,9 @@ use App\Http\Controllers\JenisPermohonanController;
 use App\Http\Controllers\JenisCiptaanController;
 use App\Http\Controllers\SubJenisCiptaanController;
 use App\Http\Controllers\PermohonanHakiController;
+use App\Http\Controllers\LaporanPermohonanController;
+use App\Http\Controllers\LaporanJenisPermohonanController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,6 +29,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::resource('sub_jenis_ciptaan', SubJenisCiptaanController::class);
     Route::resource('permohonan_haki', PermohonanHakiController::class);
     Route::POST('permohonan_haki/upload-sertifikat/{id}', [PermohonanHakiController::class, 'uploadSertifikat'])->name('permohonan_haki.uploadSertifikat');
+    Route::resource('laporan_permohonan', LaporanPermohonanController::class);
+    Route::resource('laporan_jenis_permohonan', LaporanJenisPermohonanController::class);
+    Route::get('/downloadpdf', [LaporanPermohonanController::class, 'downloadpdf']);
+
+
+
+    
 });
 
 Route::get('/', function () {
@@ -44,3 +54,4 @@ Route::get('/unduhan', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
