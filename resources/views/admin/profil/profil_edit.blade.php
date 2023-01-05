@@ -21,7 +21,7 @@
                             <form method="POST" action="{{ route('profile.update', $user->id) }}" enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
-
+                                <input type="hidden" name="id" value="{{auth::user()->id}}">
                                 <div class="row mb-3">
                                     <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nama Lengkap') }}</label>
 
@@ -37,10 +37,10 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
+                                    <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
 
                                     <div class="col-md-8">
-                                        <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="username" value="{{ old('username', $user->username) }}" required autocomplete="username">
+                                        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username', $user->username) }}" required autocomplete="username">
 
                                         @error('username')
                                             <span class="invalid-feedback" role="alert">
@@ -108,6 +108,35 @@
                                 </div>
 
                                 <div class="row mb-3">
+                                    <label for="alamat" class="col-md-4 col-form-label text-md-end">{{ __('Alamat') }}</label>
+
+                                    <div class="col-md-8">
+                                        <textarea id="alamat"  class="form-control @error('alamat') is-invalid @enderror" name="alamat" required autocomplete="alamat">{{ old('alamat', $user->alamat) }}</textarea>
+
+                                        @error('alamat')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <label for="kode_pos" class="col-md-4 col-form-label text-md-end">{{ __('Kode Pos') }}</label>
+
+                                    <div class="col-md-8">
+                                        <input id="kode_pos" type="text" class="form-control @error('kode_pos') is-invalid @enderror" name="kode_pos" value="{{ old('kode_pos', $user->kode_pos) }}" required autocomplete="kode_pos">
+
+                                        @error('kode_pos')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
                                     <label for="tgl_lahir" class="col-md-4 col-form-label text-md-end">{{ __('Tanggal Lahir') }}</label>
 
                                     <div class="col-md-8">
@@ -153,7 +182,7 @@
                                     <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
                                     <div class="col-md-8">
-                                        <input placeholder="KOSONGKAN JIKA TIDAK INGIN MENGGANTI PASSWORD" id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
+                                        <input placeholder="KOSONGKAN JIKA TIDAK INGIN MENGGANTI PASSWORD" id="password-confirm" type="password" class="form-control" name="cpassword" autocomplete="new-password">
                                     </div>
                                 </div>
 

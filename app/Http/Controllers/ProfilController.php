@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Provinsi;
 use App\Models\Kota;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfilController extends Controller
 {
@@ -66,22 +67,78 @@ class ProfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
-        $data = User::find($id);
-        $data->update([
-            'name' => $request->name,
-            'username' => $request->username,
-            'email' => $request->email,
-            'userno_ktpname' => $request->no_ktp,
-            'username' => $request->username,
-            'tgl_lahir' => $request->tgl_lahir,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            
+
+        // dd($request);
+
+        $user = User::find($id);
+
+        
+        if ($user->username != $request->username ) {
+            $this->validate($request, [
+                'username' => 'required|unique:users'
+            ]);
+        }
+
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'no_ktp' => ['required', 'string', 'max:255'],
+            'tgl_lahir' => ['required', 'string', 'max:255'],
+            'alamat' => ['required', 'string'],
+            'kode_pos' => ['required', 'string', 'max:255'],
+            'jenis_Kelamin' => ['required', 'string', 'max:255'],
+            'kota' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
         ]);
+
+        if ($request->password != NULL && $request->cpassword != NULL) {
+            
+            if ($request->password != $request->cpassword) {
+                $this->validate($request, [
+                    'password' => 'required',
+                    'cpassword' => 'required|same:password',
+                ]);
+            }else{
+                
+                $user->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'username' => $request->username,
+                    'no_ktp' => $request->no_ktp,
+                    'tgl_lahir' => $request->tgl_lahir,
+                    'alamat' => $request->alamat,
+                    'kode_pos' => $request->kode_pos,
+                    'kota_id' => $request->kota,
+                    'jenis_kelamin' => $request->jenis_Kelamin,
+                    'password' => Hash::make($request->password),
+                ]);
+
+                return redirect(route('dashboard-admin'))->with('success', 'Data Berhasil Diubah');
+            }           
+
+        }else{
+
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'username' => $request->username,
+                'no_ktp' => $request->no_ktp,
+                'tgl_lahir' => $request->tgl_lahir,
+                'alamat' => $request->alamat,
+                'kode_pos' => $request->kode_pos,
+                'kota_id' => $request->kota,
+                'jenis_kelamin' => $request->jenis_Kelamin,
+            ]);
+
+            return redirect(route('dashboard-admin'))->with('success', 'Profil Berhasil Diubah');
+        }
+
+
         
 
-        return redirect(route('jenis_ciptaan.index'))->with('success','Jenis Ciptaan Berhasil Diubah !');
+        return redirect(route('dashboard-admin'))->with('success', 'Profil Berhasil Diubah');
     }
 
     /**
