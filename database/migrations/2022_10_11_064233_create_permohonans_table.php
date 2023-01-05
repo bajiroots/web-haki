@@ -34,6 +34,7 @@ class CreatePermohonansTable extends Migration
             $table->string('foto_sertifikat')->nullable();
             $table->string('contoh_ciptaan_link')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
