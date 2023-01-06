@@ -8,7 +8,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Laporan</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Laporan Jenis Permohonan</li>
+                        <li class="breadcrumb-item active" aria-current="page">Laporan Jenis Ciptaan Permohonan</li>
                     </ol>
                 </nav>
             </div>
@@ -20,7 +20,7 @@
             <div class="col-xl">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title-lg">Laporan Jenis Permohonan</h5>
+                        <h5 class="card-title-lg">Laporan Jenis Ciptaan Permohonan</h5>
                         <form action="" method="GET" class="mb-3">
                             <div class="row">
                                 <div class="col">
@@ -62,7 +62,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Nomor</th>
-                                    <th scope="col">Nama Jenis Permohonan</th>
+                                    <th scope="col">Nama Jenis Ciptaan</th>
                                     <th scope="col">Total Biaya</th>
                                 </tr>
                             </thead>
@@ -74,7 +74,7 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$data->nama_jenis_ciptaan}}</td>
-                                    <td>{{$ttl_biaya[$i]}}</td>
+                                    <td>{{"Rp. ". number_format($ttl_biaya[$i], 0)}}</td>
                                 </tr>
 
                                 @php
@@ -83,7 +83,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <a href="{{url('/admin/downloadpdf2?bulan='.$request->get('bulan').'&tahun='.$request->get('tahun'))}}" target="_blank" class="btn btn-info ntn-md">DOWNLOAD PDF</a> 
+                        <a href="{{url('/admin/downloadpdf_laporan_jenis_permohonan?bulan='.$request->get('bulan').'&tahun='.$request->get('tahun'))}}" target="_blank" class="btn btn-info ntn-md">DOWNLOAD PDF</a> 
                     </div>
                 </div>
             </div>

@@ -44,7 +44,7 @@
                                     <a href="{{route('laporan_permohonan.index')}}" class="{{ (request()->is('admin/laporan_permohonan*') ) ? 'active' : '' }}">Laporan Permohonan</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('laporan_jenis_permohonan.index')}}" class="{{ (request()->is('admin/laporan_permohonan*') ) ? 'active' : '' }}">Laporan Jenis Permohonan</a>
+                                    <a href="{{route('laporan_jenis_permohonan.index')}}" class="{{ (request()->is('admin/laporan_jenis_permohonan*') ) ? 'active' : '' }}">Laporan Jenis Permohonan</a>
                                 </li>
                             </ul>
                         </li>

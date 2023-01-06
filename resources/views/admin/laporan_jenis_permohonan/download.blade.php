@@ -95,7 +95,7 @@
             <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$data->nama_jenis_ciptaan}}</td>
-                <td>{{$ttl_biaya[$i]}}</td>
+				<td>{{"Rp. ". number_format($ttl_biaya[$i], 0)}}</td>
             </tr>
 
             @php
