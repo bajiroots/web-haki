@@ -360,7 +360,7 @@
                             <td>
                                 ${emailPencipta} / ${noTelpPencipta}</td>
                             <td class="text-center">
-                                <input type"hidden" style="display: none !important;" class="idDelete" value="${idRow}">${idRow}
+                                <input type"hidden" style="display: none !important;" class="idDelete" value="${idRow}">
                                 <a href="javascript:void(0)" id="btn-edit-pencipta"  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalPencipta" >Edit</a>
                                 <a href="javascript:void(0)" id="btn-delete-pencipta"  class="btn btn-danger btn-sm">DELETE</a>
                             </td>

@@ -10,9 +10,9 @@
                 <h2 data-aos="fade-up">Website#1 untuk Mendaftarkan Hak Kekayaan Intelektual</h2>
                 <!-- <p data-aos="fade-up" data-aos-delay="100">Facere distinctio molestiae nisi fugit tenetur repellat non praesentium nesciunt optio quis sit odio nemo quisquam. eius quos reiciendis eum vel eum voluptatem eum maiores eaque id optio ullam occaecati odio est possimus vel reprehenderit</p> -->
 
-                <form action="{{ route('search') }}" method="GET" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
+                <form action="{{ route('penelusuran') }}" method="GET" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
                     data-aos-delay="200">
-                    <input type="text" class="form-control" name="keyword" placeholder="Telusuri Hak Cipta">
+                    <input type="text" class="form-control" name="search" placeholder="Telusuri Hak Cipta">
                     <button type="submit" class="btn btn-primary">Cari</button>
                 </form>
 
@@ -55,41 +55,14 @@
 
             <div class="row gy-4">
                 <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
-                    <img src="assets/img/about.jpg" class="img-fluid" alt="">
-                    <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+                    <img src="{{ asset('assets/img/haki.jpg') }}" class="img-fluid" alt="">
+                    <a href="https://www.youtube.com/watch?v=ggEN1absf3s" class="glightbox play-btn"></a>
                 </div>
                 <div class="col-lg-6 content order-last  order-lg-first">
-                    <h3>About Us</h3>
+                    <h3>Tentang HAK CIPTA</h3>
                     <p>
-                        Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas deleniti.
-                        Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti totam ut eius
-                        incidunt reiciendis veritatis asperiores placeat.
+                        Hak Cipta merupakan salah satu bagian dari kekayaan intelektual yang memiliki ruang lingkup objek dilindungi paling luas, karena mencakup ilmu pengetahuan, seni dan sastra (art and literary) yang di dalamnya mencakup pula program komputer. Perkembangan ekonomi kreatif yang menjadi salah satu andalan Indonesia dan berbagai negara dan berkembang pesatnya teknologi informasi dan komunikasi mengharuskan adanya pembaruan Undang-Undang Hak Cipta, mengingat Hak Cipta menjadi basis terpenting dari ekonomi kreatif nasional. Dengan Undang-Undang Hak Cipta yang memenuhi unsur pelindungan dan pengembangan ekonomi kreatif ini maka diharapkan kontribusi sektor Hak Cipta dan Hak Terkait bagi perekonomian negara dapat lebih optimal.
                     </p>
-                    <ul>
-                        <li data-aos="fade-up" data-aos-delay="100">
-                            <i class="bi bi-diagram-3"></i>
-                            <div>
-                                <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                                <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
-                            </div>
-                        </li>
-                        <li data-aos="fade-up" data-aos-delay="200">
-                            <i class="bi bi-fullscreen-exit"></i>
-                            <div>
-                                <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                                <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata
-                                    redi</p>
-                            </div>
-                        </li>
-                        <li data-aos="fade-up" data-aos-delay="300">
-                            <i class="bi bi-broadcast"></i>
-                            <div>
-                                <h5>Voluptatem et qui exercitationem</h5>
-                                <p>Et velit et eos maiores est tempora et quos dolorem autem tempora incidunt maxime
-                                    veniam</p>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
 

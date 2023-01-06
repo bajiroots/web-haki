@@ -57,7 +57,9 @@
                                             {{ strtoupper($data->status) }}</span>
                                     </td>
                                     <td>
+                                        @if($data->status == 'proses')
                                         <a href="{{route('permohonan_haki.edit', $data->id)}}" class="btn btn-warning btn-sm float-left mr-2 mb-2">Edit</a>
+                                        @endif
 
                                         <form method="POST" action="{{route('permohonan_haki.destroy', $data->id)}}">
                                             @csrf

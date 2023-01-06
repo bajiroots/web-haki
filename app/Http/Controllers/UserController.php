@@ -148,8 +148,6 @@ class UserController extends Controller
                     'cpassword' => 'required|same:password',
                 ]);
             }else{
-                $user->perangkatDaerahUser()->delete();
-                
                 $user->update([
                     'name' => $request->name,
                     'email' => $request->email,

@@ -338,7 +338,7 @@ aria-hidden="true">
                     <input type="text" class="form-control" required name="no_sertifikat" placeholder="Masukkan No Sertifikat">
                 </div>
                 <div class="form-group">
-                    <label>Upload Sertifikat <span class="required" style="color: red">* <i style="text-size:11px;"></i> </span>
+                    <label>Upload Sertifikat <span class="required" style="color: red">*(Pdf) <i style="text-size:11px;"></i> </span>
                     </label>
 
                     <div class="custom-file">

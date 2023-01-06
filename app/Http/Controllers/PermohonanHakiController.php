@@ -398,7 +398,7 @@ class PermohonanHakiController extends Controller
         }
         $validator = Validator::make($request->all(), [
             'no_sertifikat' => 'required',
-            'sertifikat' => 'required',
+            'sertifikat' => 'required|mimes:pdf',
         ]);
 
         if ($validator->fails()) {
@@ -446,7 +446,8 @@ class PermohonanHakiController extends Controller
     {
         $data = Permohonan::find($id);
         $data->update([
-            'status' => 'tolak'
+            'status' => 'tolak',
+            'admin_id' => Auth::user()->id,
         ]);
 
         return redirect(route('permohonan_haki.index'))->with('success','Permohonan Berhasil Ditolak !');
