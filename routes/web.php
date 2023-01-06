@@ -27,7 +27,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::resource('laporan_permohonan', LaporanPermohonanController::class);
     Route::resource('laporan_jenis_permohonan', LaporanJenisPermohonanController::class);
     Route::get('/downloadpdf', [LaporanPermohonanController::class, 'downloadpdf']);
-    Route::get('/downloadpdf2', [LaporanJenisPermohonanController::class, 'downloadpdf']);
+    Route::get('/downloadpdf_laporan_jenis_permohonan', [LaporanJenisPermohonanController::class, 'downloadpdf']);
 
 
 

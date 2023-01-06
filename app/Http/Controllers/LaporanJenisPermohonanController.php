@@ -78,7 +78,7 @@ class LaporanJenisPermohonanController extends Controller
         $pdf = PDF::loadview('admin.laporan_jenis_permohonan.download',['datas' => $datas, 'ttl_biaya' => $ttl_biaya])->setOptions(['defaultfont' => 'sans-serif']);
         $pdf->setPaper('A4', 'potrait');
         
-        return $pdf->stream('laporan_jenis_permohonan.pdf');
+        return $pdf->download('laporan_jenis_permohonan.pdf');
     }
 
 
