@@ -25,7 +25,7 @@
                             <div class="row">
                                 <div class="col">
 
-                        <select class="form-control" name="bulan">
+                        <select class="form-control" name="bulan" required>
                             <option value="">--Pilih Bulan--</option>
                             <option value="1" @if ($request->get('bulan') == "1" ) selected @endif >Januari</option>
                             <option value="2" @if ($request->get('bulan') == "2" ) selected @endif >Februari</option>
@@ -43,12 +43,13 @@
                     </div>
                     <div class="col">
 
-                        <select class="form-control" name="tahun">
+                        <select class="form-control" name="tahun" required>
                             <option value="">--Pilih Tahun--</option>
-                            <option value="2020"  @if ($request->get('tahun') == "2020" ) selected @endif>2020</option>
-                            <option value="2021" @if ($request->get('tahun') == "2021" ) selected @endif>2021</option>
-                            <option value="2022" @if ($request->get('tahun') == "2022" ) selected @endif>2022</option>
-                            <option value="2023" @if ($request->get('tahun') == "2023" ) selected @endif>2023</option>
+                            <option value="{{ date("Y") + 1 }}" @if ($request->get('tahun') == date("Y") + 1 ) selected @endif>{{ date("Y") + 1 }}</option>
+
+                            @for ($i = 0; $i < 5; $i++)
+                                <option value="{{ date("Y") - $i }}"  @if ($request->get('tahun') == date("Y") - $i ) selected @endif>{{ date("Y") - $i }}</option>
+                            @endfor
                         </select>
                     </div>
                     <div class="col">

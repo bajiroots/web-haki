@@ -70,7 +70,9 @@
                                     <div class="col-md-8">
                                         <select class="form-control mb-3" name="provinsi" required>
                                           @foreach ($prov as $item)
-                                              <option value="{{$item->id}}"> {{$item->nama_provinsi}} </option>
+                                              <option value="{{$item->id}}" @if ($item->id == $user->kota->Provinsi->id)
+                                                  {{ 'selected' }}
+                                              @endif > {{$item->nama_provinsi}} </option>
                                           @endforeach
                                         </select>
                             
