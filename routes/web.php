@@ -12,6 +12,11 @@ use App\Http\Controllers\LaporanPermohonanController;
 use App\Http\Controllers\LaporanJenisPermohonanController;
 use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard-admin');
