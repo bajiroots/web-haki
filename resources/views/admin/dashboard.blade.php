@@ -100,7 +100,7 @@
             <div class="col-lg-4">
               <div class="card">
                   <div class="card-body">
-                      <h5 class="card-title">Doughnut Chart</h5>
+                      <h5 class="card-title">Jumlah Status Pengajuan HAKI</h5>
                       <canvas id="chartjs4">Your browser does not support the canvas element.</canvas>
                   </div>
               </div>
@@ -108,7 +108,7 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Area Chart</h5>
+                        <h5 class="card-title">Frequensi Pengajuan HAKI</h5>
                         <div id="apex2"></div>
                     </div>
                 </div>

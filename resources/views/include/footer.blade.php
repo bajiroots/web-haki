@@ -9,10 +9,10 @@
                 </a>
                 <p>Web #1 haki</p>
                 <div class="social-links d-flex mt-4">
-                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/bajiroots/web-haki" class="github"><i class="bi bi-github"></i></a>
+                    <a href="https://web.facebook.com/politani.samarinda.716?_rdc=1&_rdr" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/politani_samarinda/" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCJTlCvBIS0IU4USFJGa75Xg" class="youtube"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
 
@@ -32,10 +32,10 @@
             <div class="col-lg-2 col-6 footer-links">
                 <h4>Useful Links</h4>
                 <ul>
-                    <li><a href="#">Beranda</a></li>
-                    <li><a href="#">Permohonan</a></li>
-                    <li><a href="#">Unduhan</a></li>
-                    <li><a href="#">Tentang</a></li>
+                    <li><a href="{{ route('welcome') }}">Beranda</a></li>
+                    <li><a href="{{ route('penelusuran') }}">Penelusuran</a></li>
+                    <li><a href="{{ route('unduhan') }}">Unduhan</a></li>
+                    <li><a href="{{ route('about') }}">Tentang HAKI</a></li>
                 </ul>
             </div>
 
