@@ -303,9 +303,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="button" id="tambah-pencipta" class="btn btn-primary" data-dismiss="modal">Simpan</button>
-                    <button type="button" id="edit-pencipta" class="btn btn-primary" data-dismiss="modal">Simpan</button>
+                    <button type="button" id="closeModal"class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="button" id="tambah-pencipta" class="btn btn-primary" >Simpan</button>
+                    <button type="button" id="edit-pencipta" class="btn btn-primary" >Simpan</button>
                 </div>
             </div>
         </div>
@@ -398,7 +398,11 @@
             let kotaText = $('select[name=kota]').find(":selected").text();
 
             if(!namaPencipta || !emailPencipta || !noTelpPencipta || !alamatPencipta || !kodePosPencipta || !provinsiId || !kotaId){
-                alert('Mohon untuk melengkapi field yang ada sebelum disimpan!')
+                Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Mohon untuk melengkapi field yang ada sebelum disimpan!',
+                    })
             }else{
                 let tablePencipta = `
                     <tr id="tbl-${idRow}">
@@ -451,7 +455,7 @@
                 $('select[name=kota]').empty();
 
                 //close modal
-                $('#modalPencipta').modal('hide');
+                $('#closeModal').click();
                 idRow = idRow + 1;
             }
             
@@ -564,7 +568,11 @@
 
             //cek apakah form telah diisi semua
             if(!namaPencipta || !emailPencipta || !noTelpPencipta || !alamatPencipta || !kodePosPencipta || !provinsiId || !kotaId){
-                alert('Mohon untuk melengkapi field yang ada sebelum disimpan!')
+                Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Mohon untuk melengkapi field yang ada sebelum disimpan!',
+                    })
             }else{
                 let tablePencipta = `
                         <td>
@@ -618,6 +626,7 @@
 
                 $('#edit-pencipta').hide();
                 $('#tambah-pencipta').show();
+                $('#closeModal').click()
             }
         });
     }); 
