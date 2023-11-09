@@ -240,10 +240,11 @@ class PermohonanHakiController extends Controller
             'kotaPencipta' => 'required|array',
             'emailPencipta' => 'required|array',
             'noTelpPencipta' => 'required|array',
-            'ktp' => 'required|mimes:pdf',
-            'surat_pernyataan' => 'required|mimes:pdf',
-            'contoh_ciptaan' => 'required',
-            'bukti_bayar' => 'required|mimes:jpeg,png,jpg,gif,svg',
+            'ktp' => 'mimes:pdf',
+            'surat_pernyataan' => 'mimes:pdf',
+            'contoh_ciptaan' => '',
+            'bukti_bayar' => 'mimes:jpeg,png,jpg,gif,svg',
+            'bukti_pengalihan' => 'mimes:pdf',
         ]);
 
         if ($validator->fails()) {
