@@ -79,6 +79,32 @@
                     <div class="swiper-slide">
                         <div class="testimonial-item">
                             <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Hamka. S. TP., MP., M. Sca</h3>
+                            <h4>PENANGGUNG JAWAB</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Dr. Andi Lisnawati, SP., M. Si</h3>
+                            <h4>KETUA</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
                             <h3>Reza Andrea</h3>
                             <h4>Project Manager</h4>
                             <div class="stars">
@@ -86,14 +112,100 @@
                                     class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                                     class="bi bi-star-fill"></i>
                             </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
                         </div>
                     </div><!-- End testimonial item -->
 
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Adelia Juli Kardika, S. Hut., M. Si</h3>
+                            <h4>ANGGOTA</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Arief Rahman, SP., M. Sc</h3>
+                            <h4>ANGGOTA</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Dr. Heriad Daud Salusu, S. Hut., MP</h3>
+                            <h4>REVIEWER</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Dr. Budi Winarni, M. Si</h3>
+                            <h4>REVIEWER</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Dr. Abdul Rasyid Zarta, S. Hut., MP</h3>
+                            <h4>REVIEWER</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Rudito. S. TP., MP</h3>
+                            <h4>REVIEWER</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Rusmini, SP., MP</h3>
+                            <h4>REVIEWER</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+                                    
                     <div class="swiper-slide">
                         <div class="testimonial-item">
                             <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
@@ -161,6 +273,80 @@
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
                                 Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code.
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Nur Asikin Rindiyani</h3>
+                            <h4>Backend Developer</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                            <p>
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                Stay positive. Attitude is everything                                
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Fairuz Alifah</h3>
+                            <h4>Backend Developer</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                            <p>
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                If it was easy, everybody could do it!
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Firman Pratama</h3>
+                            <h4>Backend Developer</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                            <p>
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                Tomorrow is a day that never arrives.
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Hermawati</h3>
+                            <h4>Backend Developer</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                            <p>
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                Only you can change your life. Nobody else can do it for you.
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
