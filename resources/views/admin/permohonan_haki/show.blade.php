@@ -308,6 +308,16 @@
                                             </td>
                                         </tr>
                                     @endif
+
+                                    @if($data->optional_file !== null)
+                                        <tr>
+                                            <td><p><a href="{{ asset('storage/'.$data->optional_file) }}"
+                                                target="_blank">Berkas Pendukung</a></p></td>
+                                            <td>
+                                                {{ $data->optional_file }}
+                                            </td>
+                                        </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>

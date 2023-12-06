@@ -137,6 +137,15 @@ class PermohonanHakiController extends Controller
                     'public', $fileNameBuktiPengalihan
                 );
             }
+
+            if ($request->optional_file) {
+                $directory = 'lampiran_permohonan/optional_file';
+                $fileOptionalName = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->optional_file->getClientOriginalName();
+                
+                $path = $request->optional_file->storeAs(
+                    'public', $fileOptionalName
+                );
+            }
             
             $permohonan = Permohonan::create([
                 'user_id' => Auth::user()->id,
@@ -153,6 +162,7 @@ class PermohonanHakiController extends Controller
                 'contoh_ciptaan_wajib' => $fileNameContohCiptaan,
                 'bukti_pengalihan_hak_cipta' => $fileNameBuktiPengalihan,
                 'contoh_ciptaan_link' => $request->contoh_ciptaan_link ?? null,
+                'optional_file' => $fileOptionalName ?? null,
             ]);
             
             for ($i=0; $i < count($request->namaPencipta); $i++) { 

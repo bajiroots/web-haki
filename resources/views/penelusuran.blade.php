@@ -77,6 +77,7 @@
                               <div class="col-md-12">
                                 <div class="card-body">
                                     @if ($data->status == 'terima')
+                                    <a href=" @if($data->foto_sertifikat === null) #! @else {{ asset('storage/'.$data->foto_sertifikat) }} @endif" target="_blank" class="btn @if($data->foto_sertifikat === null) disabled btn-success @else btn-success bg-success text-light @endif float-right" @if($data->foto_sertifikat === null) disabled @endif> <i class="fa fa-download"></i></a>
                                     <button class="btn btn-success btn-sm text-white">Diterima</button>
                                     @endif
 

@@ -167,6 +167,17 @@
                                 </span>
                             </div>
                         </div>
+
+                        <div class="row my-3">
+                            <div class="col">
+                                <label>Berkas Pendukung <span class="required" style="color: red"><i style="text-size:11px;">(Optional)</i></span></label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="optional_file" id="optional_file">
+                                    <label class="custom-file-label" id="label_optional_file" for="optional_file">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label>Contoh Ciptaan (Link)</label>
                             <textarea class="form-control" name="contoh_ciptaan_link" id="" cols="5" rows="2"></textarea>
@@ -453,6 +464,14 @@
                     filename = filename.substring(0, 60) + ' . . .';
                 }
                 $("#label_bukti_pengalihan").html(filename)
+            });
+
+            $("#optional_file").change(function (e) { 
+                var filename = $(this).val().replace(/C:\\fakepath\\/i, '')
+                if (filename.length > 60) {
+                    filename = filename.substring(0, 60) + ' . . .';
+                }
+                $("#label_optional_file").html(filename)
             });
 
             $.each($(".select2-container"), function (i, v) { 
