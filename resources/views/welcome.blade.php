@@ -56,7 +56,7 @@
             <div class="row gy-4">
                 <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
                     <img src="{{ asset('assets/img/haki.jpg') }}" class="img-fluid" alt="">
-                    <a href="https://www.youtube.com/watch?v=ggEN1absf3s" class="glightbox play-btn"></a>
+                    <a href="https://www.youtube.com/watch?v=gro6nhlTE3o" class="glightbox play-btn"></a>
                 </div>
                 <div class="col-lg-6 content order-last  order-lg-first">
                     <h3>Tentang HAK CIPTA</h3>
@@ -78,7 +78,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <img src="{{ asset('foto/1.jpg') }}" class="testimonial-img" alt="">
                             <h3>Hamka. S. TP., MP., M. Sca</h3>
                             <h4>PENANGGUNG JAWAB</h4>
                             <div class="stars">
@@ -91,7 +91,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <img src="{{ asset('foto/2.jpg') }}" class="testimonial-img" alt="">
                             <h3>Dr. Andi Lisnawati, SP., M. Si</h3>
                             <h4>KETUA</h4>
                             <div class="stars">
@@ -104,7 +104,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <img src="{{ asset('foto/3.jpg') }}" class="testimonial-img" alt="">
                             <h3>Reza Andrea</h3>
                             <h4>Project Manager</h4>
                             <div class="stars">
@@ -117,7 +117,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <img src="{{ asset('foto/4.jfif') }}" class="testimonial-img" alt="">
                             <h3>Adelia Juli Kardika, S. Hut., M. Si</h3>
                             <h4>ANGGOTA</h4>
                             <div class="stars">
@@ -130,7 +130,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <img src="{{ asset('foto/5.jfif') }}" class="testimonial-img" alt="">
                             <h3>Arief Rahman, SP., M. Sc</h3>
                             <h4>ANGGOTA</h4>
                             <div class="stars">
@@ -143,7 +143,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <img src="{{ asset('foto/6.jfif') }}" class="testimonial-img" alt="">
                             <h3>Dr. Heriad Daud Salusu, S. Hut., MP</h3>
                             <h4>REVIEWER</h4>
                             <div class="stars">
@@ -156,7 +156,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <img src="{{ asset('foto/7.jfif') }}" class="testimonial-img" alt="">
                             <h3>Dr. Budi Winarni, M. Si</h3>
                             <h4>REVIEWER</h4>
                             <div class="stars">
@@ -169,7 +169,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <img src="{{ asset('foto/8.jpg') }}" class="testimonial-img" alt="">
                             <h3>Dr. Abdul Rasyid Zarta, S. Hut., MP</h3>
                             <h4>REVIEWER</h4>
                             <div class="stars">
@@ -182,7 +182,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <img src="{{ asset('foto/9.jpg') }}" class="testimonial-img" alt="">
                             <h3>Rudito. S. TP., MP</h3>
                             <h4>REVIEWER</h4>
                             <div class="stars">
@@ -195,7 +195,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <img src="{{ asset('foto/10.jfif') }}" class="testimonial-img" alt="">
                             <h3>Rusmini, SP., MP</h3>
                             <h4>REVIEWER</h4>
                             <div class="stars">
@@ -347,6 +347,24 @@
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
                                 Only you can change your life. Nobody else can do it for you.
+                                <i class="bi bi-quote quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{{ asset('assets/img/politani.png') }}" class="testimonial-img" alt="">
+                            <h3>Nabil Hakim Muhammad</h3>
+                            <h4>Front end Developer</h4>
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                            <p>
+                                <i class="bi bi-quote quote-icon-left"></i>
+                                Don't finish mistake with mistake
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>

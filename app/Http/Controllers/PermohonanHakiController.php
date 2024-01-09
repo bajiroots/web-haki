@@ -97,54 +97,66 @@ class PermohonanHakiController extends Controller
                 $directory = 'lampiran_permohonan/bukti_bayar';
                 $fileNameBuktiBayar = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->bukti_bayar->getClientOriginalName();
                 
-                $path = $request->bukti_bayar->storeAs(
-                    'public', $fileNameBuktiBayar
-                );
+                // $path = $request->bukti_bayar->storeAs(
+                //     'public', $fileNameBuktiBayar
+                // );
+                
+                $request->bukti_bayar->move(public_path($directory), $fileNameBuktiBayar);
             }
 
             if ($request->ktp) {
                 $directory = 'lampiran_permohonan/ktp';
                 $fileNameKtp = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->ktp->getClientOriginalName();
                 
-                $path = $request->ktp->storeAs(
-                    'public', $fileNameKtp
-                );
+                // $path = $request->ktp->storeAs(
+                //     'public', $fileNameKtp
+                // );
+
+                $request->ktp->move(public_path($directory), $fileNameKtp);
             }
 
             if ($request->surat_pernyataan) {
                 $directory = 'lampiran_permohonan/surat_pernyataan';
                 $fileNameSuratPernyataan = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->surat_pernyataan->getClientOriginalName();
                 
-                $path = $request->surat_pernyataan->storeAs(
-                    'public', $fileNameSuratPernyataan
-                );
+                // $path = $request->surat_pernyataan->storeAs(
+                //     'public', $fileNameSuratPernyataan
+                // );
+
+                $request->surat_pernyataan->move(public_path($directory), $fileNameSuratPernyataan);
             }
 
             if ($request->contoh_ciptaan) {
                 $directory = 'lampiran_permohonan/contoh_ciptaan';
                 $fileNameContohCiptaan = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->contoh_ciptaan->getClientOriginalName();
                 
-                $path = $request->contoh_ciptaan->storeAs(
-                    'public', $fileNameContohCiptaan
-                );
+                // $path = $request->contoh_ciptaan->storeAs(
+                //     'public', $fileNameContohCiptaan
+                // );
+
+                $request->contoh_ciptaan->move(public_path($directory), $fileNameContohCiptaan);
             }
             
             if ($request->bukti_pengalihan) {
                 $directory = 'lampiran_permohonan/bukti_pengalihan';
                 $fileNameBuktiPengalihan = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->bukti_pengalihan->getClientOriginalName();
                 
-                $path = $request->bukti_pengalihan->storeAs(
-                    'public', $fileNameBuktiPengalihan
-                );
+                // $path = $request->bukti_pengalihan->storeAs(
+                //     'public', $fileNameBuktiPengalihan
+                // );
+
+                $request->bukti_pengalihan->move(public_path($directory), $fileNameBuktiPengalihan);
             }
 
             if ($request->optional_file) {
                 $directory = 'lampiran_permohonan/optional_file';
                 $fileOptionalName = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->optional_file->getClientOriginalName();
                 
-                $path = $request->optional_file->storeAs(
-                    'public', $fileOptionalName
-                );
+                // $path = $request->optional_file->storeAs(
+                //     'public', $fileOptionalName
+                // );
+
+                $request->optional_file->move(public_path($directory), $fileOptionalName);
             }
             
             $permohonan = Permohonan::create([
@@ -278,45 +290,66 @@ class PermohonanHakiController extends Controller
                 $directory = 'lampiran_permohonan/bukti_bayar';
                 $fileNameBuktiBayar = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->bukti_bayar->getClientOriginalName();
                 
-                $path = $request->bukti_bayar->storeAs(
-                    'public', $fileNameBuktiBayar
-                );
+                // $path = $request->bukti_bayar->storeAs(
+                //     'public', $fileNameBuktiBayar
+                // );
+                
+                $request->bukti_bayar->move(public_path($directory), $fileNameBuktiBayar);
             }
 
             if ($request->ktp) {
                 $directory = 'lampiran_permohonan/ktp';
                 $fileNameKtp = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->ktp->getClientOriginalName();
                 
-                $path = $request->ktp->storeAs(
-                    'public', $fileNameKtp
-                );
+                // $path = $request->ktp->storeAs(
+                //     'public', $fileNameKtp
+                // );
+
+                $request->ktp->move(public_path($directory), $fileNameKtp);
             }
 
             if ($request->surat_pernyataan) {
                 $directory = 'lampiran_permohonan/surat_pernyataan';
                 $fileNameSuratPernyataan = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->surat_pernyataan->getClientOriginalName();
                 
-                $path = $request->surat_pernyataan->storeAs(
-                    'public', $fileNameSuratPernyataan
-                );
+                // $path = $request->surat_pernyataan->storeAs(
+                //     'public', $fileNameSuratPernyataan
+                // );
+
+                $request->surat_pernyataan->move(public_path($directory), $fileNameSuratPernyataan);
             }
 
             if ($request->contoh_ciptaan) {
                 $directory = 'lampiran_permohonan/contoh_ciptaan';
                 $fileNameContohCiptaan = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->contoh_ciptaan->getClientOriginalName();
                 
-                $path = $request->contoh_ciptaan->storeAs(
-                    'public', $fileNameContohCiptaan
-                );
-            }
+                // $path = $request->contoh_ciptaan->storeAs(
+                //     'public', $fileNameContohCiptaan
+                // );
 
+                $request->contoh_ciptaan->move(public_path($directory), $fileNameContohCiptaan);
+            }
+            
             if ($request->bukti_pengalihan) {
                 $directory = 'lampiran_permohonan/bukti_pengalihan';
                 $fileNameBuktiPengalihan = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->bukti_pengalihan->getClientOriginalName();
                 
-                $path = $request->bukti_pengalihan->storeAs(
-                    'public', $fileNameBuktiPengalihan
-                );
+                // $path = $request->bukti_pengalihan->storeAs(
+                //     'public', $fileNameBuktiPengalihan
+                // );
+
+                $request->bukti_pengalihan->move(public_path($directory), $fileNameBuktiPengalihan);
+            }
+
+            if ($request->optional_file) {
+                $directory = 'lampiran_permohonan/optional_file';
+                $fileOptionalName = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->optional_file->getClientOriginalName();
+                
+                // $path = $request->optional_file->storeAs(
+                //     'public', $fileOptionalName
+                // );
+
+                $request->optional_file->move(public_path($directory), $fileOptionalName);
             }
 
             $permohonan->update([
@@ -429,9 +462,11 @@ class PermohonanHakiController extends Controller
                 $directory = 'lampiran_permohonan/sertifikat';
                 $fileNameSertifikat = $directory .'/'. date('Y-m-d-H-i-s') .'-'. $request->sertifikat->getClientOriginalName();
                 
-                $path = $request->sertifikat->storeAs(
-                    'public', $fileNameSertifikat
-                );
+                // $path = $request->sertifikat->storeAs(
+                //     'public', $fileNameSertifikat
+                // );
+
+                $request->sertifikat->move(public_path($directory), $fileNameSertifikat);
             }
 
             $permohonan->update([

@@ -10,7 +10,7 @@
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h2>Penelusuran HAKI</h2>
+                        <h2>Penelusuran HKI</h2>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
             <div class="container">
                 <ol>
                     <li><a href="{{ route('welcome') }}">Home</a></li>
-                    <li>Penelusuran HAKI</li>
+                    <li>Penelusuran HKI</li>
                 </ol>
             </div>
         </nav>
@@ -34,7 +34,7 @@
                 
                 <div class="col-md-8">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="{{ $getSearch }}" name="search" placeholder="Penelusuran HAKI" aria-label="Penelusuran HAKI">
+                        <input type="text" class="form-control" value="{{ $getSearch }}" name="search" placeholder="Penelusuran HKI" aria-label="Penelusuran HKI">
                     </div>
                     
                     <div class="input-group">

@@ -54,7 +54,7 @@
                                 
                                 @if ($data->status != 'tolak')
 
-                                <a href=" @if($data->foto_sertifikat === null) #! @else {{ asset('storage/'.$data->foto_sertifikat) }} @endif" target="_blank" class="btn @if($data->foto_sertifikat === null) disabled btn-success @else btn-success bg-success text-light @endif float-right" @if($data->foto_sertifikat === null) disabled @endif> <i class="fa fa-download"></i> Download Sertifikat</a>
+                                <a href=" @if($data->foto_sertifikat === null) #! @else {{ asset(rawurlencode($data->foto_sertifikat)) }} @endif" target="_blank" class="btn @if($data->foto_sertifikat === null) disabled btn-success @else btn-success bg-success text-light @endif float-right" @if($data->foto_sertifikat === null) disabled @endif> <i class="fa fa-download"></i> Download Sertifikat</a>
 
                                 @if(Auth::user()->level == 'admin')
                                 <button type="button" class="btn btn-primary float-right mb-2 mr-2" data-toggle="modal" data-target="#modalSertifikat">
@@ -272,28 +272,28 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><p><a href="{{ asset('storage/'.$data->foto_ktp_wajib) }}"
+                                        <td><p><a href="{{ asset($data->foto_ktp_wajib) }}"
                                             target="_blank">KTP</a></p></td>
                                         <td>
                                             {{ $data->foto_ktp_wajib }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><p><a href="{{ asset('storage/'.$data->foto_bukti_bayar_wajib) }}"
+                                        <td><p><a href="{{ asset(rawurlencode($data->foto_bukti_bayar_wajib)) }}"
                                             target="_blank">Foto Bukti Bayar</a></p></td>
                                         <td>
                                             {{ $data->foto_bukti_bayar_wajib }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><p><a href="{{ asset('storage/'.$data->surat_pernyataan_wajib) }}"
+                                        <td><p><a href="{{ asset(rawurlencode($data->surat_pernyataan_wajib)) }}"
                                             target="_blank">Surat Pernyataan</a></p></td>
                                         <td>
                                             {{ $data->surat_pernyataan_wajib }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><p><a href="{{ asset('storage/'.$data->contoh_ciptaan_wajib) }}"
+                                        <td><p><a href="{{ asset(rawurlencode($data->contoh_ciptaan_wajib)) }}"
                                             target="_blank">Contoh Ciptaan</a></p></td>
                                         <td>
                                             {{ $data->contoh_ciptaan_wajib }}
@@ -301,7 +301,7 @@
                                     </tr>
                                     @if($data->bukti_pengalihan_hak_cipta !== null)
                                         <tr>
-                                            <td><p><a href="{{ asset('storage/'.$data->bukti_pengalihan_hak_cipta) }}"
+                                            <td><p><a href="{{ asset(rawurlencode($data->bukti_pengalihan_hak_cipta)) }}"
                                                 target="_blank">Bukti Pengalihan</a></p></td>
                                             <td>
                                                 {{ $data->bukti_pengalihan_hak_cipta }}
@@ -311,7 +311,7 @@
 
                                     @if($data->optional_file !== null)
                                         <tr>
-                                            <td><p><a href="{{ asset('storage/'.$data->optional_file) }}"
+                                            <td><p><a href="{{ asset(rawurlencode($data->optional_file)) }}"
                                                 target="_blank">Berkas Pendukung</a></p></td>
                                             <td>
                                                 {{ $data->optional_file }}

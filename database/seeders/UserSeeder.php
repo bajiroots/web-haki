@@ -16,17 +16,17 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'kota_id' => '1',
-            'name' => 'admin',
+            'kota_id' => '99',
+            'name' => 'dicky armansyah',
             'level' => 'admin',
-            'username' => 'admin',
+            'username' => 'superadmin',
             'no_ktp' => '1',
             'tgl_lahir' => '2022-10-11',
             'alamat' => 'ec',
             'kode_pos' => '666',
             'jenis_kelamin' => 'laki-laki',
-            'email' => 'gg@mail.com',
-            'password' => bcrypt('123'),
+            'email' => 'superadmin@mail.com',
+            'password' => bcrypt('superadmin123!'),
         ]);
     }
 }

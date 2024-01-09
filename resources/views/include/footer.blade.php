@@ -5,9 +5,9 @@
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-info">
                 <a href="index.html" class="logo d-flex align-items-center">
-                    <span>WEB HAKI</span>
+                    <span>WEB HKI</span>
                 </a>
-                <p>Web #1 haki</p>
+                <p>Web #1 HKI</p>
                 <div class="social-links d-flex mt-4">
                     <a href="https://github.com/bajiroots/web-haki" class="github"><i class="bi bi-github"></i></a>
                     <a href="https://web.facebook.com/politani.samarinda.716?_rdc=1&_rdr" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -35,7 +35,7 @@
                     <li><a href="{{ route('welcome') }}">Beranda</a></li>
                     <li><a href="{{ route('penelusuran') }}">Penelusuran</a></li>
                     <li><a href="{{ route('unduhan') }}">Unduhan</a></li>
-                    <li><a href="{{ route('about') }}">Tentang HAKI</a></li>
+                    <li><a href="{{ route('about') }}">Tentang HKI</a></li>
                 </ul>
             </div>
 

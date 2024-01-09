@@ -18,7 +18,7 @@
     <div class="main-wrapper container">
         <div class="row my-2">
             <div class="col-md-12 mb-3">
-                <h1>Selamat Datang di Aplikasi WEB HAKI, {{ Auth::user()->name }}</h1>
+                <h1>Selamat Datang di Aplikasi WEB HKI, {{ Auth::user()->name }}</h1>
             </div>
         </div>
 
@@ -100,7 +100,7 @@
             <div class="col-lg-4">
               <div class="card">
                   <div class="card-body">
-                      <h5 class="card-title">Jumlah Status Pengajuan HAKI</h5>
+                      <h5 class="card-title">Jumlah Status Pengajuan HKI</h5>
                       <canvas id="chartjs4">Your browser does not support the canvas element.</canvas>
                   </div>
               </div>
@@ -108,7 +108,7 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Frequensi Pengajuan HAKI</h5>
+                        <h5 class="card-title">Frequensi Pengajuan HKI</h5>
                         <div id="apex2"></div>
                     </div>
                 </div>
